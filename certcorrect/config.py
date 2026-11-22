@@ -29,6 +29,10 @@ PROBLEMS = {
     # Lift-off benchmark (plan risk 1, Gate 0 decision iii): load centres x in [0.25, 0.45] for training and
     # [0.55, 0.75] for testing; y as in the membrane. The test contact patch is not represented in the snapshots.
     "membrane_shift": lambda: Membrane(train_x_range=(0.25, 0.45), test_x_range=(0.55, 0.75), name="membrane_shift"),
+    # Milder shift (week 6, option b): training x in [0.30, 0.55], test x in [0.50, 0.70] (overlap 0.05), so that the
+    # ROM can still converge while part of the test contact patch lies outside the training patches.
+    "membrane_shift_mild": lambda: Membrane(train_x_range=(0.30, 0.55), test_x_range=(0.50, 0.70),
+                                            name="membrane_shift_mild"),
 }
 
 # Snapshot and basis settings per benchmark (basis sizes swept in X1).
@@ -37,6 +41,7 @@ SETTINGS = {
     # results/x1_rd*); with 96 it still decreases at r = 60. Runs with 24 are kept in results/x1*_rd24.
     "membrane": dict(n_train=200, n_test=200, r_primal=(5, 10, 20, 40, 60), r_dual=96, dual_kind="nmf"),
     "membrane_shift": dict(n_train=200, n_test=200, r_primal=(5, 10, 20, 40, 60), r_dual=96, dual_kind="nmf"),
+    "membrane_shift_mild": dict(n_train=200, n_test=200, r_primal=(5, 10, 20, 40, 60), r_dual=96, dual_kind="nmf"),
     "block": dict(n_train=100, n_test=100, r_primal=(4, 8, 15, 30), r_dual=12, dual_kind="nmf"),
     "layered": dict(n_train=100, n_test=100, r_primal=(4, 8, 15, 30), r_dual=12, dual_kind="nmf"),
 }

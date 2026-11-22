@@ -1,0 +1,18 @@
+2026-11-22 11:29:04 INFO    check_theory: membrane_shift_mild: up to 100 queries x (5, 10, 20, 40, 60) basis sizes -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\theory\membrane_shift_mild_seed0.npz
+2026-11-22 11:29:06 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 2.5 s
+2026-11-22 11:29:09 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 1.2 s
+2026-11-22 11:29:14 INFO    check_theory: R0  T1: bound violations excess 0.0 %, certificate 0.0 % | queries with missed rows 100 % (median 14 rows) | of those, pre-asymptotic (||e|| >= m(M)/s^2) 4 % | median m(M)/||e|| 5.294
+2026-11-22 11:29:14 INFO    check_theory:       tightness (excess / bound), median: energy form (T1.1) 0.055 | localized ||lam_M|| ||g^_M|| 0.370 | excess ~ ||e||^1.48, ||lam_M||_1 ~ ||e||^0.15, max g^_M ~ ||e||^1.07
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [0.485, 3.3]: median eff 1.16 (T1.3 bound 3.25)
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [3.3, 9.55]: median eff 1.27 (T1.3 bound 4.72)
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [9.55, 314]: median eff 1.54 (T1.3 bound 21.63)
+2026-11-22 11:29:14 INFO    check_theory: R0s T1: bound violations excess 0.0 %, certificate 0.0 % | queries with missed rows 91 % (median 8 rows) | of those, pre-asymptotic (||e|| >= m(M)/s^2) 30 % | median m(M)/||e|| 1.699
+2026-11-22 11:29:14 INFO    check_theory:       tightness (excess / bound), median: energy form (T1.1) 0.130 | localized ||lam_M|| ||g^_M|| 0.596 | excess ~ ||e||^2.13, ||lam_M||_1 ~ ||e||^1.60, max g^_M ~ ||e||^0.95
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [0.0259, 1.12]: median eff 1.08 (T1.3 bound 2.38)
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [1.12, 2.64]: median eff 1.21 (T1.3 bound 3.03)
+2026-11-22 11:29:14 INFO    check_theory:       m(M)/||e|| in [2.64, 10.4]: median eff 1.37 (T1.3 bound 4.88)
+2026-11-22 11:29:14 INFO    check_theory: T2 gap       : bound violations 0.0 % | median relative change of the error -0.1 % | median ||B^+p||_K / beta||p|| 1.00
+2026-11-22 11:29:14 INFO    check_theory: T2 multiplier: bound violations 0.0 % | median relative change of the error +47.1 % | median ||B^+p||_K / beta||p|| 1.00
+2026-11-22 11:29:14 INFO    check_theory: T2 gap a priori bound (T2.3) holds in 100.0 % | median bound / actual cost 55.8
+2026-11-22 11:29:14 INFO    check_theory: T3 S_t: covers A_+ in 9 % | Delta(S_t)/Delta(S1) median 1.000 (covered), 1.442 (not covered) | median |S_t| 15
+2026-11-22 11:29:14 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\theory\membrane_shift_mild_seed0.npz (36 arrays)
