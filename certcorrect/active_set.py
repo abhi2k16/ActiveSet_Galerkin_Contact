@@ -4,7 +4,7 @@
   * ``gap``        : rows with ``(B u~ - c)_i <= tau_gap * char_gap`` (includes every penetrating row).
   * ``neighbours`` : union of the training active sets of the ``k`` nearest training parameters.
 The certificate is valid for any ``A^``; only its sharpness and the correction's accuracy depend on the rule.
-Status: ``multiplier``, ``gap`` and the diagnostics done (week 1); ``neighbours`` in weeks 5-6.
+Status: all rules and the diagnostics done (``neighbours`` and the S1 support rule in week 5).
 """
 
 import numpy as np
@@ -29,8 +29,24 @@ def by_gap(gap_tilde: np.ndarray, tau_gap: float, char_gap: float) -> np.ndarray
     return np.flatnonzero(gap_tilde <= tau_gap * char_gap)
 
 
-def by_neighbours(mu: np.ndarray, train_mus: np.ndarray, train_active: list[np.ndarray], k: int) -> np.ndarray:
-    raise NotImplementedError("weeks 5-6")
+def by_neighbours(mu: np.ndarray, train_mus: np.ndarray, train_active: list[np.ndarray], k: int,
+                  lo: np.ndarray, hi: np.ndarray) -> np.ndarray:
+    """Union of the training active sets of the ``k`` nearest training parameters, with distances measured after
+    scaling the training box ``[lo, hi]`` to the unit cube (parameters have different units)."""
+    if k < 1 or k > len(train_mus):
+        raise ValueError(f"k must be in [1, {len(train_mus)}], got {k}")
+    width = np.where(hi > lo, hi - lo, 1.0)
+    dist = np.linalg.norm((train_mus - mu) / width, axis=1)
+    nearest = np.argsort(dist)[:k]
+    return np.unique(np.concatenate([np.asarray(train_active[i], dtype=int) for i in nearest]))
+
+
+def support_by_gap(g_hat: np.ndarray, t: float) -> np.ndarray:
+    """Support ``S_t = {i : g^_i <= t}`` of S1-restricted (paper Theorem 3.6); contains ``A^`` for a snapped
+    correction, and ``A_+`` whenever ``||B e||_inf <= t``."""
+    if t < 0:
+        raise ValueError("t must be >= 0")
+    return np.flatnonzero(g_hat <= t)
 
 
 def recall_and_oversnap(active_hat: np.ndarray, strictly_active: np.ndarray,

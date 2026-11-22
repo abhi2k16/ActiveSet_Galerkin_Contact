@@ -84,6 +84,15 @@ class ContactProblem:
         """``n`` parameters, uniform in the training box."""
         return self.lo + (self.hi - self.lo) * rng.random((n, len(self.lo)))
 
+    test_lo: np.ndarray | None = None  # test box, if different from the training box (lift-off benchmark)
+    test_hi: np.ndarray | None = None
+
+    def sample_test(self, rng: np.random.Generator, n: int) -> np.ndarray:
+        """``n`` test parameters: uniform in the test box if one is set, else in the training box."""
+        if self.test_lo is None:
+            return self.sample(rng, n)
+        return self.test_lo + (self.test_hi - self.test_lo) * rng.random((n, len(self.test_lo)))
+
     def in_box(self, mus: np.ndarray) -> np.ndarray:
         return np.all((mus >= self.lo) & (mus <= self.hi), axis=1)
 
@@ -135,10 +144,14 @@ class Membrane(ContactProblem):
     every ``stride``-th interior node (in both directions) may touch it."""
 
     def __init__(self, n: int = 25, stride: int = 2, d0: float = 0.3, kappa: float = 1.5, sigma: float = 0.12,
-                 load_range=(30.0, 200.0), centre_range=(0.35, 0.65)):
+                 load_range=(30.0, 200.0), centre_range=(0.35, 0.65), train_x_range=None, test_x_range=None,
+                 name: str = "membrane"):
+        """``train_x_range`` / ``test_x_range``: if given, the load centre's x-coordinate of training / test queries is
+        drawn from these intervals instead of ``centre_range`` (lift-off benchmark: the true contact patch of a test
+        query lies where the training snapshots had none)."""
         if n < 2 or stride < 1:
             raise ValueError("need n >= 2 and stride >= 1")
-        self.name = "membrane"
+        self.name = name
         self.n, self.stride, self.d0, self.kappa, self.sigma = n, stride, d0, kappa, sigma
         mesh = rectangle_mesh(1.0, 1.0, n, n)
         fes = FESystem(mesh, Quad4Laplace(), sparse=True)
@@ -160,6 +173,11 @@ class Membrane(ContactProblem):
         self.hi = np.array([load_range[1], centre_range[1], centre_range[1]])
         self.param_names = ("peak load", "centre x", "centre y")
         self.load_axis, self.centre_axes = 0, (1, 2)
+        if train_x_range is not None:
+            self.lo[1], self.hi[1] = train_x_range
+        if test_x_range is not None:
+            self.test_lo, self.test_hi = self.lo.copy(), self.hi.copy()
+            self.test_lo[1], self.test_hi[1] = test_x_range
 
     def theta(self, mu):
         return np.ones(1)

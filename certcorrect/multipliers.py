@@ -8,7 +8,8 @@ a valid certificate; the variants differ in sharpness and cost.
                     ``w = M lam + q``, ``M = 2 B X^-1 B^T / alpha_X``, ``q = 2 B X^-1 a / alpha_X + g^``.
   * S1-restricted : S1 with ``lam_i = 0`` outside a support set (the LCP on the support rows only).
   * S2            : NNLS on the residual ``||a + B^T lam||_{X^-1}``.
-Status: S1 and S1-restricted done (week 1); S0 and S2 in weeks 5-6.
+Status: all variants done (S1, S1-restricted week 1; S0, S2 week 5). Support rule for S1-restricted:
+``active_set.support_by_gap`` (paper Theorem 3.6: the support must contain ``A_+``, else the certificate has a floor).
 """
 
 from collections.abc import Callable
@@ -61,8 +62,12 @@ class MinResidualS1:
 
 
 def clip_s0(lam_tilde: np.ndarray) -> np.ndarray:
-    raise NotImplementedError("weeks 5-6")
+    """S0: the lifted ROM multiplier, clipped at zero (no optimisation, cost O(n_c))."""
+    return np.maximum(np.asarray(lam_tilde, float), 0.0)
 
 
-def nnls_s2(*args, **kwargs) -> np.ndarray:
-    raise NotImplementedError("weeks 5-6")
+def nnls_s2(s1: MinResidualS1, a: np.ndarray, alpha_x: float,
+            support: np.ndarray | None = None) -> tuple[np.ndarray, bool]:
+    """S2: ``argmin_{lam >= 0} ||a + B^T lam||_{X^-1}`` (residual only). It is the S1 problem without the gap term,
+    i.e. ``MinResidualS1.solve`` with ``g^ = 0``; the scaling by ``alpha_X`` does not change the minimiser."""
+    return s1.solve(a, np.zeros(s1.B.shape[0]), alpha_x, support)

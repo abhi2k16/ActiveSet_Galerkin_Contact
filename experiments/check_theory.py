@@ -87,7 +87,7 @@ def evaluate(problem, inner, s1, Bp, beta, mu, ref, red) -> dict:
 def run(problem, settings: dict, seed: int) -> dict[str, np.ndarray]:
     snap = training_snapshots(problem, np.random.default_rng(SEEDS["train"] + seed), settings["n_train"])
     V, W = build_bases(snap, max(settings["r_primal"]), settings["r_dual"], settings["dual_kind"])
-    mus = problem.sample(np.random.default_rng(SEEDS["test"] + seed), settings["n_test"])[:N_TEST_MAX]
+    mus = problem.sample_test(np.random.default_rng(SEEDS["test"] + seed), settings["n_test"])[:N_TEST_MAX]
     refs, ok = solve_many(problem, mus, "test")
     mus = mus[ok]
     inner = EnergyInnerProduct(problem)

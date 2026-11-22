@@ -1,0 +1,13 @@
+2026-11-22 10:43:50 INFO    x1_rate: layered: n_dof=3375, n_contact=225, r_primal=(4, 8, 15, 30), r_dual=12 (nmf), rule=gap (tau_lambda=1e-08, tau_gap=0.001) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.001_R0-R0s-B-Bs\layered_seed0.npz
+2026-11-22 10:44:34 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 44.2 s
+2026-11-22 10:45:19 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 44.3 s
+2026-11-22 10:45:23 INFO    x1_rate: r=  4: ROM ok 100/100 | median rel. error G0 1.19e-01 | R0 err 1.15e-01 eff 1.25 | R0s err 1.16e-01 eff 1.22 | B err 1.17e-01 eff 1.29 | Bs err 1.15e-01 eff 1.22
+2026-11-22 10:45:27 INFO    x1_rate: r=  8: ROM ok 100/100 | median rel. error G0 5.22e-02 | R0 err 4.53e-02 eff 1.39 | R0s err 4.59e-02 eff 1.21 | B err 4.58e-02 eff 1.49 | Bs err 4.53e-02 eff 1.22
+2026-11-22 10:45:31 INFO    x1_rate: r= 15: ROM ok 100/100 | median rel. error G0 3.30e-02 | R0 err 2.84e-02 eff 1.63 | R0s err 2.78e-02 eff 1.30 | B err 2.62e-02 eff 2.02 | Bs err 2.41e-02 eff 1.32
+2026-11-22 10:45:36 INFO    x1_rate: r= 30: ROM ok 100/100 | median rel. error G0 3.41e-02 | R0 err 2.45e-02 eff 1.79 | R0s err 2.43e-02 eff 1.38 | B err 2.45e-02 eff 2.25 | Bs err 2.14e-02 eff 1.41
+2026-11-22 10:45:36 INFO    x1_rate: R0   certificate rate: all 0.97 | A_+ covered 1.01 (35) | not covered 0.85 (365) | accepted 30 %
+2026-11-22 10:45:36 INFO    x1_rate: R0s  certificate rate: all 1.02 | A_+ covered 1.04 (66) | not covered 0.93 (334) | accepted 46 %
+2026-11-22 10:45:36 INFO    x1_rate: B    certificate rate: all 0.99 | A_+ covered 1.02 (21) | not covered 0.87 (379) | accepted 10 %
+2026-11-22 10:45:36 INFO    x1_rate: Bs   certificate rate: all 1.02 | A_+ covered 1.05 (66) | not covered 0.90 (334) | accepted 49 %
+2026-11-22 10:45:36 INFO    x1_rate: best certificate rate 1.03 | accepted 50 % | chosen: R0 2 %, R0s 44 %, B 7 %, Bs 46 % | median rel. Delta by r: [0.14  0.055 0.037 0.036]
+2026-11-22 10:45:36 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.001_R0-R0s-B-Bs\layered_seed0.npz (50 arrays)

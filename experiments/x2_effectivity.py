@@ -35,7 +35,7 @@ def run_level(problem, settings: dict, seed: int, rule: str, tau_lambda: float, 
     snap = training_snapshots(problem, np.random.default_rng(SEEDS["train"] + seed), settings["n_train"])
     V, W = build_bases(snap, settings["r_primal"], settings["r_dual"], settings["dual_kind"])
     rom = rom_for_size(problem, V, W, V.shape[1])
-    test_mus = problem.sample(np.random.default_rng(SEEDS["test"] + seed), settings["n_test"])
+    test_mus = problem.sample_test(np.random.default_rng(SEEDS["test"] + seed), settings["n_test"])
     refs, ok = solve_many(problem, test_mus, f"test (n_dof={problem.n_dof})")
     test_mus = test_mus[ok]
     eig = extreme_eigenvalues(problem.stiffness(problem.lo))

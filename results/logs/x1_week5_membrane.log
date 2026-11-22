@@ -1,0 +1,14 @@
+2026-11-22 10:42:59 INFO    x1_rate: membrane: n_dof=576, n_contact=144, r_primal=(5, 10, 20, 40, 60), r_dual=96 (nmf), rule=gap (tau_lambda=1e-08, tau_gap=0.001) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.001_R0-R0s-B-Bs\membrane_seed0.npz
+2026-11-22 10:43:02 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 2.4 s
+2026-11-22 10:43:06 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 2.6 s
+2026-11-22 10:43:09 INFO    x1_rate: r=  5: ROM ok 200/200 | median rel. error G0 2.68e-01 | R0 err 2.62e-01 eff 1.26 | R0s err 2.65e-01 eff 1.19 | B err 2.67e-01 eff 1.29 | Bs err 2.67e-01 eff 1.17
+2026-11-22 10:43:13 INFO    x1_rate: r= 10: ROM ok 200/200 | median rel. error G0 1.25e-01 | R0 err 1.24e-01 eff 1.41 | R0s err 1.25e-01 eff 1.25 | B err 1.25e-01 eff 1.48 | Bs err 1.25e-01 eff 1.24
+2026-11-22 10:43:16 INFO    x1_rate: r= 20: ROM ok 200/200 | median rel. error G0 7.87e-02 | R0 err 7.79e-02 eff 1.42 | R0s err 7.79e-02 eff 1.19 | B err 7.85e-02 eff 1.66 | Bs err 7.79e-02 eff 1.19
+2026-11-22 10:43:20 INFO    x1_rate: r= 40: ROM ok 200/200 | median rel. error G0 3.69e-02 | R0 err 3.65e-02 eff 1.54 | R0s err 3.57e-02 eff 1.06 | B err 3.68e-02 eff 2.38 | Bs err 3.53e-02 eff 1.07
+2026-11-22 10:43:23 INFO    x1_rate: r= 60: ROM ok 200/200 | median rel. error G0 1.95e-02 | R0 err 1.90e-02 eff 1.76 | R0s err 1.91e-02 eff 1.00 | B err 1.91e-02 eff 3.46 | Bs err 1.84e-02 eff 1.00
+2026-11-22 10:43:23 INFO    x1_rate: R0   certificate rate: all 0.87 | A_+ covered nan (0) | not covered 0.87 (1000) | accepted 20 %
+2026-11-22 10:43:23 INFO    x1_rate: R0s  certificate rate: all 1.05 | A_+ covered 1.00 (237) | not covered 0.99 (763) | accepted 33 %
+2026-11-22 10:43:23 INFO    x1_rate: B    certificate rate: all 0.65 | A_+ covered nan (0) | not covered 0.65 (1000) | accepted 4 %
+2026-11-22 10:43:23 INFO    x1_rate: Bs   certificate rate: all 1.04 | A_+ covered 1.00 (237) | not covered 0.98 (763) | accepted 34 %
+2026-11-22 10:43:23 INFO    x1_rate: best certificate rate 1.05 | accepted 34 % | chosen: R0 1 %, R0s 42 %, B 0 %, Bs 57 % | median rel. Delta by r: [0.301 0.162 0.09  0.039 0.019]
+2026-11-22 10:43:23 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.001_R0-R0s-B-Bs\membrane_seed0.npz (50 arrays)

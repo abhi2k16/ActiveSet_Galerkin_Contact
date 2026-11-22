@@ -10,12 +10,13 @@ import time
 from dataclasses import dataclass
 
 import numpy as np
+import scipy.sparse as sp
 from scipy.sparse.linalg import factorized
 
 from .active_set import by_gap, by_multiplier, recall_and_oversnap
 from .bases import dual_basis, pod_basis
 from .certificate import certify, is_accepted, min_theta_alpha
-from .corrections import RightInverse, repair_r0, repair_r0_snap
+from .corrections import EnergyProjection, RightInverse, repair_r0, repair_r0_snap
 from .fom import FomSolution, FullOrderSolver, energy_norm
 from .multipliers import MinResidualS1
 from .problems import ContactProblem
@@ -23,7 +24,8 @@ from .rom import GalerkinROM, ReducedSolution
 
 LOG = logging.getLogger(__name__)
 CONTACT_GAP_RTOL = 1e-10          # g^_i <= CONTACT_GAP_RTOL * char_gap counts as "in contact" (coverage diagnostic)
-CORRECTIONS = ("R0", "R0s")
+CORRECTIONS = ("R0", "R0s")                  # default set (Gate 0 runs)
+ALL_CORRECTIONS = ("R0", "R0s", "B", "Bs")
 ACTIVE_SET_RULES = ("multiplier", "gap", "both")
 
 
@@ -73,7 +75,8 @@ class EnergyInnerProduct:
         self.problem = problem
         self.mu_bar = 0.5 * (problem.lo + problem.hi) if mu_bar is None else np.asarray(mu_bar, float)
         self.theta_bar = problem.theta(self.mu_bar)
-        self.solve = factorized(problem.stiffness(self.mu_bar).tocsc())
+        self.matrix = problem.stiffness(self.mu_bar)
+        self.solve = factorized(self.matrix.tocsc())
 
     def alpha(self, mu: np.ndarray) -> float:
         return min_theta_alpha(self.problem.theta(mu), self.theta_bar)
@@ -92,6 +95,7 @@ class EuclideanInnerProduct:
         if alpha_lb <= 0:
             raise ValueError("alpha_lb must be positive")
         self.problem, self.alpha_lb = problem, float(alpha_lb)
+        self.matrix = sp.identity(problem.n_dof, format="csr")
 
     @staticmethod
     def solve(r: np.ndarray) -> np.ndarray:
@@ -127,6 +131,12 @@ class QueryEvaluator:
         self.right_inverse = RightInverse.from_constraints(problem.B)
         self.s1 = MinResidualS1(problem.B, inner.solve)
         self.contact_tol = CONTACT_GAP_RTOL * problem.char_gap
+        self.projection = None                 # EnergyProjection for the current primal basis (B, Bs)
+
+    def attach_basis(self, V: np.ndarray, basis: str = "compliance") -> None:
+        """Prepare B / Bs for the primal basis ``V`` (offline: orthonormalised ``Z``, projected terms)."""
+        self.projection = EnergyProjection(self.problem, V, self.inner.solve, self.inner.matrix, self.right_inverse,
+                                           basis, xinv_bt=self.s1.xinv_bt)
 
     def predicted_active(self, red: ReducedSolution, c: np.ndarray) -> np.ndarray:
         """``A^`` from the lifted prediction: ``multiplier``, ``gap``, or ``both`` (intersection of the two)."""
@@ -137,19 +147,27 @@ class QueryEvaluator:
             return near
         return np.intersect1d(near, by_multiplier(red.lam, self.tau_lambda))
 
-    def correct(self, name: str, red: ReducedSolution, c: np.ndarray, active_hat: np.ndarray) -> np.ndarray:
+    def correct(self, name: str, mu: np.ndarray, red: ReducedSolution, c: np.ndarray,
+                active_hat: np.ndarray) -> np.ndarray:
         B = self.problem.B
         if name == "R0":
             return repair_r0(red.u, B, c, self.right_inverse)
         if name == "R0s":
             return repair_r0_snap(red.u, B, c, self.right_inverse, active_hat)
-        raise ValueError(f"unknown correction {name!r}; choose from {CORRECTIONS}")
+        if name in ("B", "Bs"):
+            if self.projection is None:
+                raise ValueError("call attach_basis(V) before using the corrections B / Bs")
+            result = self.projection.project(mu, red.u, c, None if name == "B" else active_hat)
+            if not result.ok:
+                LOG.warning("%s: projection LCP not solved at mu=%s", name, np.round(mu, 4))
+            return result.u
+        raise ValueError(f"unknown correction {name!r}; choose from {ALL_CORRECTIONS}")
 
     def certify_correction(self, name: str, mu: np.ndarray, K, f: np.ndarray, c: np.ndarray, ref: FomSolution,
                            red: ReducedSolution, active_hat: np.ndarray) -> Certified:
         p = self.problem
         start = time.perf_counter()
-        u_hat = self.correct(name, red, c, active_hat)
+        u_hat = self.correct(name, mu, red, c, active_hat)
         t_corr = time.perf_counter() - start
         g_hat = np.maximum(p.B @ u_hat - c, 0.0)
         alpha = self.inner.alpha(mu)

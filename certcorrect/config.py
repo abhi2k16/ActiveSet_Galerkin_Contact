@@ -26,6 +26,9 @@ PROBLEMS = {
     "membrane": lambda: Membrane(),
     "block": lambda: ElasticBlock(n_xy=12, nz=3),
     "layered": lambda: ElasticBlock(n_xy=16, nz=4, layered=True),
+    # Lift-off benchmark (plan risk 1, Gate 0 decision iii): load centres x in [0.25, 0.45] for training and
+    # [0.55, 0.75] for testing; y as in the membrane. The test contact patch is not represented in the snapshots.
+    "membrane_shift": lambda: Membrane(train_x_range=(0.25, 0.45), test_x_range=(0.55, 0.75), name="membrane_shift"),
 }
 
 # Snapshot and basis settings per benchmark (basis sizes swept in X1).
@@ -33,6 +36,7 @@ SETTINGS = {
     # r_dual = 96 (not M2's 24): with 24 the G0 error plateaus at ~5 % from r = 40 on (week-2 sweep, 22 Nov 2026,
     # results/x1_rd*); with 96 it still decreases at r = 60. Runs with 24 are kept in results/x1*_rd24.
     "membrane": dict(n_train=200, n_test=200, r_primal=(5, 10, 20, 40, 60), r_dual=96, dual_kind="nmf"),
+    "membrane_shift": dict(n_train=200, n_test=200, r_primal=(5, 10, 20, 40, 60), r_dual=96, dual_kind="nmf"),
     "block": dict(n_train=100, n_test=100, r_primal=(4, 8, 15, 30), r_dual=12, dual_kind="nmf"),
     "layered": dict(n_train=100, n_test=100, r_primal=(4, 8, 15, 30), r_dual=12, dual_kind="nmf"),
 }
