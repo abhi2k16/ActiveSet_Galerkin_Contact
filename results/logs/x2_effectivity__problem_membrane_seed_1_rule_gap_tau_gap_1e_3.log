@@ -1,0 +1,14 @@
+2026-11-22 10:00:44 INFO    x2_effectivity: membrane: 4 mesh levels, settings {'n_train': 100, 'n_test': 100, 'r_primal': 20, 'r_dual': 24, 'dual_kind': 'nmf'}, rule=gap -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2_gap_tg0.001\membrane_seed1.npz
+2026-11-22 10:00:45 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 0.4 s
+2026-11-22 10:00:45 INFO    certcorrect.pipeline: test (n_dof=196): 100/100 full-order solves converged in 0.5 s
+2026-11-22 10:00:46 INFO    x2_effectivity: n_dof=  196 sqrt(kappa)=    6.7 | median eff. R0: K 1.38, I 4.2 | R0s: K 1.23 (E1(b) holds: 1.00, n=14), I 4.1 | best: K 1.23, I 4.1
+2026-11-22 10:00:49 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 1.4 s
+2026-11-22 10:00:51 INFO    certcorrect.pipeline: test (n_dof=576): 100/100 full-order solves converged in 1.4 s
+2026-11-22 10:00:51 INFO    x2_effectivity: n_dof=  576 sqrt(kappa)=   11.2 | median eff. R0: K 1.70, I 5.8 | R0s: K 1.24 (E1(b) holds: 1.01, n=13), I 5.7 | best: K 1.24, I 5.7
+2026-11-22 10:01:00 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 4.9 s
+2026-11-22 10:01:06 INFO    certcorrect.pipeline: test (n_dof=1521): 100/100 full-order solves converged in 4.5 s
+2026-11-22 10:01:07 INFO    x2_effectivity: n_dof= 1521 sqrt(kappa)=   18.0 | median eff. R0: K 1.67, I 7.8 | R0s: K 1.12 (E1(b) holds: 1.00, n=12), I 7.9 | best: K 1.12, I 7.8
+2026-11-22 10:01:28 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 13.1 s
+2026-11-22 10:01:43 INFO    certcorrect.pipeline: test (n_dof=3481): 100/100 full-order solves converged in 12.9 s
+2026-11-22 10:01:50 INFO    x2_effectivity: n_dof= 3481 sqrt(kappa)=   27.0 | median eff. R0: K 1.49, I 11.3 | R0s: K 1.01 (E1(b) holds: 1.00, n=54), I 14.5 | best: K 1.02, I 11.3
+2026-11-22 10:01:50 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2_gap_tg0.001\membrane_seed1.npz (36 arrays)

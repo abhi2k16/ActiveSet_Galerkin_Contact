@@ -1,0 +1,14 @@
+2026-11-22 10:01:52 INFO    x2_effectivity: block: 4 mesh levels, settings {'n_train': 60, 'n_test': 60, 'r_primal': 15, 'r_dual': 12, 'dual_kind': 'nmf'}, rule=gap -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2_gap_tg0.001\block_seed1.npz
+2026-11-22 10:01:53 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 0.6 s
+2026-11-22 10:01:54 INFO    certcorrect.pipeline: test (n_dof=441): 60/60 full-order solves converged in 0.6 s
+2026-11-22 10:01:54 INFO    x2_effectivity: n_dof=  441 sqrt(kappa)=    8.2 | median eff. R0: K 1.64, I 3.2 | R0s: K 1.04 (E1(b) holds: 1.00, n=34), I 3.0 | best: K 1.04, I 3.0
+2026-11-22 10:02:00 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 5.3 s
+2026-11-22 10:02:05 INFO    certcorrect.pipeline: test (n_dof=1452): 60/60 full-order solves converged in 5.0 s
+2026-11-22 10:02:06 INFO    x2_effectivity: n_dof= 1452 sqrt(kappa)=   12.6 | median eff. R0: K 1.75, I 3.9 | R0s: K 1.52 (E1(b) holds: 1.00, n=10), I 3.8 | best: K 1.54, I 3.8
+2026-11-22 10:02:37 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 29.8 s
+2026-11-22 10:03:07 INFO    certcorrect.pipeline: test (n_dof=3375): 60/60 full-order solves converged in 28.8 s
+2026-11-22 10:03:08 INFO    x2_effectivity: n_dof= 3375 sqrt(kappa)=   16.9 | median eff. R0: K 1.63, I 4.4 | R0s: K 1.20 (E1(b) holds: 1.00, n=12), I 4.4 | best: K 1.20, I 4.4
+2026-11-22 10:04:57 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 104.8 s
+2026-11-22 10:07:05 INFO    certcorrect.pipeline: test (n_dof=6498): 60/60 full-order solves converged in 128.0 s
+2026-11-22 10:07:11 INFO    x2_effectivity: n_dof= 6498 sqrt(kappa)=   21.1 | median eff. R0: K 1.46, I 5.5 | R0s: K 1.11 (E1(b) holds: 1.00, n=14), I 5.6 | best: K 1.11, I 5.5
+2026-11-22 10:07:11 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2_gap_tg0.001\block_seed1.npz (36 arrays)
