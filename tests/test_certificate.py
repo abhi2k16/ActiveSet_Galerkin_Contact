@@ -60,6 +60,24 @@ def test_euclidean_certificate_bounds_error_and_is_looser(solved):
     assert cert_i.delta >= error and cert_i.rho_bar >= cert_k.rho_bar * (1 - 1e-12)
 
 
+def test_primal_dual_gap_relation(solved):
+    """Paper Prop. 2.3: G = rho^2/2 + eta, J(u^) - J(u) = ||e||^2/2 + lam.g^, and ||e|| <= Delta <= sqrt(2G)."""
+    problem, K, f, c, sol, solve_k = solved
+    rng = np.random.default_rng(7)
+    J = lambda v: 0.5 * v @ (K @ v) - f @ v                                    # noqa: E731
+    for _ in range(N_PERTURBATIONS):
+        u_hat = sol.u + 0.05 * np.abs(sol.u).max() * rng.random(problem.n_dof)    # feasible (B selects, +1)
+        ell = np.maximum(sol.lam * (1.0 + 0.3 * rng.standard_normal(problem.n_contact)), 0.0)
+        w = f + problem.B.T @ ell
+        gap = J(u_hat) - (-0.5 * w @ solve_k(w) + ell @ c)
+        cert = certify(K, f, problem.B, c, u_hat, ell, solve_k, 1.0)
+        g_hat = problem.B @ u_hat - c
+        e = sol.u - u_hat
+        assert gap == pytest.approx(0.5 * cert.rho_bar**2 + ell @ g_hat, rel=1e-9)
+        assert J(u_hat) - J(sol.u) == pytest.approx(0.5 * e @ (K @ e) + sol.lam @ g_hat, rel=1e-8)
+        assert energy_norm(K, e) <= cert.delta * (1 + 1e-12) <= np.sqrt(2 * gap) * (1 + 1e-12)
+
+
 def test_infeasible_pair_is_not_certified(solved):
     problem, K, f, c, sol, solve_k = solved
     cert = certify(K, f, problem.B, c, sol.u - 1.0, sol.lam, solve_k, 1.0)
