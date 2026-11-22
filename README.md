@@ -8,6 +8,8 @@
 <p align="center">
   <img alt="Python 3" src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white">
   <img alt="NumPy and SciPy" src="https://img.shields.io/badge/built%20on-NumPy%20%7C%20SciPy-013243?logo=numpy&logoColor=white">
+  <img alt="FEA engine" src="https://img.shields.io/badge/FEA-fea__engine-blue">
+  <img alt="ROM engine" src="https://img.shields.io/badge/ROM-rom__engine-purple">
   <img alt="Problem class" src="https://img.shields.io/badge/problem-frictionless%20unilateral%20contact-orange">
   <img alt="Benchmarks" src="https://img.shields.io/badge/benchmarks-membrane%20%7C%20block%20%7C%20layered-teal">
 </p>
@@ -45,6 +47,19 @@ metadata to reproduce the calculation and compare methods under the same setting
 | 6 | **Multiplier methods** | S1 and S1-restricted constructions for residual-compatible multiplier estimates. |
 | 7 | **Certified acceptance** | Fixed error, effectivity and finite-precision criteria recorded in the experiment configuration. |
 | 8 | **Experiment and result tools** | Shared CLI, logging, environment records, NPZ result storage and figure/table helpers. |
+
+### Computation suite dependencies
+
+This project delegates the finite-element and reduced-model machinery to two local packages from the authors'
+computation suite:
+
+| Package | Purpose |
+|---|---|
+| **`fea_engine`** | Finite-element assembly, contact problem definitions, exact sparse contact solves and full-order KKT residual calculations. |
+| **`rom_engine`** | Reduced contact models, Galerkin projection helpers and active-set linear-complementarity solves. |
+
+`fea_engine` and `rom_engine` are **not on PyPI** and are not vendored in this repository. Install both as editable
+packages from a local copy of the computation suite before running the package or experiments.
 
 ```mermaid
 flowchart LR
