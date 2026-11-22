@@ -1,0 +1,2 @@
+2026-11-22 10:10:49 INFO    x1_rate: layered: n_dof=3375, n_contact=225, r_primal=(4, 8, 15, 30), r_dual=12 (nmf), rule=gap (tau_lambda=1e-08, tau_gap=0.001) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.001\layered_seed2.npz
+2026-11-22 10:11:49 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 60.1 s
