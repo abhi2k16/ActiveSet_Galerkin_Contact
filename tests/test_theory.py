@@ -27,12 +27,17 @@ def s1_certificate(K, f, B, c, u_hat, solve_k, s1, support=None):
 
 @pytest.mark.parametrize("eps", [0.5, 0.1, 1e-2, 1e-4])
 def test_proposition_e2_example_and_t1_sharpness(eps):
-    """N = n_c = 1, K = B = 1, c = 0, f = -1: sqrt(eps/2) <= Delta(S1) <= (2/sqrt3) sqrt(eps^2 + eps)."""
-    K, B = sp.csr_matrix([[1.0]]), sp.csr_matrix([[1.0]])
-    f, c, u_hat = np.array([-1.0]), np.array([0.0]), np.array([eps])
+    """Paper Prop. 3.3: N = 2, n_c = 1, K = I, B = [1 0], c = 0, f = (-1, 0). The optimal certificate over all
+    multipliers is sqrt(eps(1 + eps)) at l = 1 + eps; S1 lies between it and the bound (2/sqrt3) sqrt(eps^2 + eps)."""
+    K, B = sp.identity(2, format="csr"), sp.csr_matrix([[1.0, 0.0]])
+    f, c, u_hat = np.array([-1.0, 0.0]), np.array([0.0]), np.array([eps, 0.0])
     solve = lambda r: np.array(r, dtype=float)             # noqa: E731  (X = K = I)
+    optimum = np.sqrt(eps * (1 + eps))
+    assert certify(K, f, B, c, u_hat, np.array([1 + eps]), solve, 1.0).delta == pytest.approx(optimum, rel=1e-12)
+    grid = np.linspace(0.0, 4.0, 4001)
+    assert min(certify(K, f, B, c, u_hat, np.array([t]), solve, 1.0).delta for t in grid) >= optimum * (1 - 1e-12)
     cert = s1_certificate(K, f, B, c, u_hat, solve, MinResidualS1(B, solve))
-    assert np.sqrt(eps / 2) <= cert.delta <= TWO_OVER_ROOT3 * np.sqrt(eps**2 + eps) * (1 + REL)
+    assert optimum * (1 - REL) <= cert.delta <= TWO_OVER_ROOT3 * np.sqrt(eps**2 + eps) * (1 + REL)
 
 
 @pytest.fixture(scope="module")

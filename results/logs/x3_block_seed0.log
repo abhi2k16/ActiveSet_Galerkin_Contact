@@ -1,1 +1,17 @@
 2026-11-22 12:33:00 INFO    x3_active_set: block: 10 rules x 2 basis sizes -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x3\block_seed0.npz
+2026-11-22 12:33:10 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 10.2 s
+2026-11-22 12:33:19 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 9.3 s
+2026-11-22 12:33:30 INFO    x3_active_set: r=15 done (100 queries)
+2026-11-22 12:33:42 INFO    x3_active_set: r=30 done (100 queries)
+2026-11-22 12:33:42 INFO    x3_active_set: r=30 | R0: acc 90 %, eff 1.81, |M| 5, ||lam_M||_1 0.00552 | B: acc 34 %, eff 2.25, |M| 8, ||lam_M||_1 0.0097 (medians)
+2026-11-22 12:33:42 INFO    x3_active_set: multiplier     recall 1.00 over-snap 0.40 |A^|  24 | R0s err 17.07 % eff 1.00 | Bs err 14.90 % eff 1.00 | accepted best 92 %
+2026-11-22 12:33:42 INFO    x3_active_set: gap_0.0001     recall 0.67 over-snap 0.00 |A^|   9 | R0s err 2.05 % eff 1.81 | Bs err 2.11 % eff 2.15 | accepted best 92 %
+2026-11-22 12:33:42 INFO    x3_active_set: gap_0.0003     recall 0.75 over-snap 0.00 |A^|  10 | R0s err 2.04 % eff 1.77 | Bs err 2.04 % eff 1.97 | accepted best 92 %
+2026-11-22 12:33:42 INFO    x3_active_set: gap_0.001      recall 0.86 over-snap 0.00 |A^|  12 | R0s err 1.99 % eff 1.50 | Bs err 1.96 % eff 1.61 | accepted best 94 %
+2026-11-22 12:33:42 INFO    x3_active_set: gap_0.003      recall 1.00 over-snap 0.12 |A^|  15 | R0s err 2.19 % eff 1.00 | Bs err 1.78 % eff 1.00 | accepted best 99 %
+2026-11-22 12:33:42 INFO    x3_active_set: gap_0.01       recall 1.00 over-snap 0.36 |A^|  22 | R0s err 8.51 % eff 1.00 | Bs err 7.47 % eff 1.00 | accepted best 92 %
+2026-11-22 12:33:42 INFO    x3_active_set: both_0.01      recall 1.00 over-snap 0.29 |A^|  19 | R0s err 6.32 % eff 1.00 | Bs err 5.43 % eff 1.00 | accepted best 95 %
+2026-11-22 12:33:42 INFO    x3_active_set: neighbours_1   recall 0.91 over-snap 0.08 |A^|  13 | R0s err 2.33 % eff 1.01 | Bs err 1.79 % eff 1.02 | accepted best 98 %
+2026-11-22 12:33:42 INFO    x3_active_set: neighbours_3   recall 1.00 over-snap 0.22 |A^|  17 | R0s err 4.79 % eff 1.00 | Bs err 4.28 % eff 1.00 | accepted best 94 %
+2026-11-22 12:33:42 INFO    x3_active_set: neighbours_5   recall 1.00 over-snap 0.30 |A^|  20 | R0s err 7.99 % eff 1.00 | Bs err 6.94 % eff 1.00 | accepted best 92 %
+2026-11-22 12:33:42 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x3\block_seed0.npz (25 arrays)
