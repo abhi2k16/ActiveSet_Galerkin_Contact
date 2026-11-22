@@ -1,0 +1,12 @@
+2026-11-22 09:42:28 INFO    x1_rate: membrane: n_dof=576, n_contact=144, r_primal=(5, 10, 20, 40, 60), r_dual=96 (nmf), rule=multiplier (tau_lambda=1e-08, tau_gap=1e-08) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1\membrane_seed0.npz
+2026-11-22 09:42:31 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 3.1 s
+2026-11-22 09:42:36 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 3.1 s
+2026-11-22 09:42:38 INFO    x1_rate: r=  5: ROM ok 200/200 | median rel. error G0 2.68e-01, R0 2.62e-01, R0s 3.01e-01 | median eff. R0 1.26, R0s 1.12
+2026-11-22 09:42:40 INFO    x1_rate: r= 10: ROM ok 200/200 | median rel. error G0 1.25e-01, R0 1.24e-01, R0s 2.87e-01 | median eff. R0 1.41, R0s 1.05
+2026-11-22 09:42:43 INFO    x1_rate: r= 20: ROM ok 200/200 | median rel. error G0 7.87e-02, R0 7.79e-02, R0s 3.91e-01 | median eff. R0 1.42, R0s 1.01
+2026-11-22 09:42:45 INFO    x1_rate: r= 40: ROM ok 200/200 | median rel. error G0 3.69e-02, R0 3.65e-02, R0s 4.83e-01 | median eff. R0 1.54, R0s 1.00
+2026-11-22 09:42:48 INFO    x1_rate: r= 60: ROM ok 200/200 | median rel. error G0 1.95e-02, R0 1.90e-02, R0s 5.53e-01 | median eff. R0 1.76, R0s 1.00
+2026-11-22 09:42:48 INFO    x1_rate: R0   certificate rate: all 0.87 | A_+ covered nan (0) | not covered 0.87 (1000) | accepted 20 %
+2026-11-22 09:42:48 INFO    x1_rate: R0s  certificate rate: all 0.90 | A_+ covered 1.00 (236) | not covered 0.88 (764) | accepted 0 %
+2026-11-22 09:42:48 INFO    x1_rate: best certificate rate 0.86 | accepted 20 % | R0s chosen 16 % | median rel. Delta by r: [0.31  0.176 0.108 0.056 0.036]
+2026-11-22 09:42:48 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1\membrane_seed0.npz (32 arrays)

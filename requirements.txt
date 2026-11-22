@@ -1,0 +1,11 @@
+# Same versions as the M1/M2 environments, so results stay comparable.
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.0
+pytest==9.2.0
+pyvista==0.44.1
+vtk==9.3.1
+# The only local packages this project uses (editable installs of the computation suite):
+-e ../../../computation-suite/fea_engine
+-e ../../../computation-suite/rom_engine
+-e .

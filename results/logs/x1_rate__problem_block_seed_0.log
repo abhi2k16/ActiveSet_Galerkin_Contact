@@ -1,0 +1,11 @@
+2026-11-22 09:43:12 INFO    x1_rate: block: n_dof=1452, n_contact=121, r_primal=(4, 8, 15, 30), r_dual=12 (nmf), rule=multiplier (tau_lambda=1e-08, tau_gap=1e-08) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1\block_seed0.npz
+2026-11-22 09:43:20 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 8.0 s
+2026-11-22 09:43:28 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 7.6 s
+2026-11-22 09:43:28 INFO    x1_rate: r=  4: ROM ok 100/100 | median rel. error G0 7.36e-02, R0 6.12e-02, R0s 1.23e-01 | median eff. R0 1.30, R0s 1.01
+2026-11-22 09:43:29 INFO    x1_rate: r=  8: ROM ok 100/100 | median rel. error G0 4.66e-02, R0 4.00e-02, R0s 1.35e-01 | median eff. R0 1.35, R0s 1.00
+2026-11-22 09:43:29 INFO    x1_rate: r= 15: ROM ok 100/100 | median rel. error G0 3.27e-02, R0 2.38e-02, R0s 1.66e-01 | median eff. R0 1.64, R0s 1.00
+2026-11-22 09:43:30 INFO    x1_rate: r= 30: ROM ok 100/100 | median rel. error G0 3.17e-02, R0 2.05e-02, R0s 1.71e-01 | median eff. R0 1.81, R0s 1.00
+2026-11-22 09:43:30 INFO    x1_rate: R0   certificate rate: all 0.92 | A_+ covered 1.00 (26) | not covered 0.84 (374) | accepted 53 %
+2026-11-22 09:43:30 INFO    x1_rate: R0s  certificate rate: all 0.99 | A_+ covered 1.00 (318) | not covered 0.94 (82) | accepted 4 %
+2026-11-22 09:43:30 INFO    x1_rate: best certificate rate 0.85 | accepted 54 % | R0s chosen 9 % | median rel. Delta by r: [0.082 0.051 0.041 0.039]
+2026-11-22 09:43:30 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1\block_seed0.npz (32 arrays)

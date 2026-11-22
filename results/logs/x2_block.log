@@ -1,0 +1,14 @@
+2026-11-22 09:06:32 INFO    x2_effectivity: block: 4 mesh levels, settings {'n_train': 60, 'n_test': 60, 'r_primal': 15, 'r_dual': 12, 'dual_kind': 'nmf'}, rule=multiplier -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2\block_seed0.npz
+2026-11-22 09:06:33 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 0.7 s
+2026-11-22 09:06:34 INFO    certcorrect.pipeline: test (n_dof=441): 60/60 full-order solves converged in 0.7 s
+2026-11-22 09:06:34 INFO    x2_effectivity: n_dof=  441 sqrt(kappa)=    8.2 | median eff. R0: K 2.12, I 3.1 | R0s: K 1.00 (E1(b) holds: 1.00, n=59), I 3.2 | best: K 1.87, I 3.2
+2026-11-22 09:06:40 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 5.3 s
+2026-11-22 09:06:46 INFO    certcorrect.pipeline: test (n_dof=1452): 60/60 full-order solves converged in 5.1 s
+2026-11-22 09:06:46 INFO    x2_effectivity: n_dof= 1452 sqrt(kappa)=   12.6 | median eff. R0: K 1.62, I 3.5 | R0s: K 1.00 (E1(b) holds: 1.00, n=58), I 4.6 | best: K 1.53, I 3.5
+2026-11-22 09:07:27 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 38.7 s
+2026-11-22 09:08:02 INFO    certcorrect.pipeline: test (n_dof=3375): 60/60 full-order solves converged in 34.3 s
+2026-11-22 09:08:04 INFO    x2_effectivity: n_dof= 3375 sqrt(kappa)=   16.9 | median eff. R0: K 1.66, I 4.3 | R0s: K 1.00 (E1(b) holds: 1.00, n=60), I 5.9 | best: K 1.66, I 4.3
+2026-11-22 09:10:59 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 170.3 s
+2026-11-22 09:13:12 INFO    certcorrect.pipeline: test (n_dof=6498): 60/60 full-order solves converged in 132.5 s
+2026-11-22 09:13:18 INFO    x2_effectivity: n_dof= 6498 sqrt(kappa)=   21.1 | median eff. R0: K 1.61, I 5.3 | R0s: K 1.00 (E1(b) holds: 1.00, n=60), I 7.3 | best: K 1.61, I 5.3
+2026-11-22 09:13:18 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x2\block_seed0.npz (36 arrays)
