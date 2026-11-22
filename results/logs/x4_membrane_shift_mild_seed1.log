@@ -1,0 +1,20 @@
+2026-11-22 12:56:49 INFO    x4_multipliers: membrane_shift_mild: n_contact=144, tau_gap=0.003 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\membrane_shift_mild_seed1.npz
+2026-11-22 12:56:51 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 2.6 s
+2026-11-22 12:56:57 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 2.8 s
+2026-11-22 12:57:02 INFO    x4_multipliers: R0s (median effectivity of S1 1.095):
+2026-11-22 12:57:02 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.497 (p90 3.538) | speed-up vs S1 median 167.9x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.019 (p90 1.405) | speed-up vs S1 median 2.7x | support   22 | covers A_+  42 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.019 (p90 1.405) | speed-up vs S1 median 2.7x | support   22 | covers A_+  42 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.8x | support   46 | covers A_+  97 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.813 (p90 3.958) | speed-up vs S1 median 0.7x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers: Bs (median effectivity of S1 1.139):
+2026-11-22 12:57:02 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.644 (p90 4.185) | speed-up vs S1 median 158.1x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.031 (p90 1.572) | speed-up vs S1 median 2.7x | support   22 | covers A_+  42 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.026 (p90 1.564) | speed-up vs S1 median 2.7x | support   22 | covers A_+  43 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.7x | support   45 | covers A_+  95 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.935 (p90 4.285) | speed-up vs S1 median 0.7x | support  144 | covers A_+ 100 % 
+2026-11-22 12:57:02 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\membrane_shift_mild_seed1.npz (10 arrays)

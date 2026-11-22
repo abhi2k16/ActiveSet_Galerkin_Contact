@@ -1,20 +1,20 @@
-2026-11-22 12:38:33 INFO    x4_multipliers: layered: n_contact=225, tau_gap=0.001 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed0.npz
-2026-11-22 12:39:34 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 60.4 s
-2026-11-22 12:40:30 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 55.5 s
-2026-11-22 12:40:41 INFO    x4_multipliers: R0s (median effectivity of S1 1.375):
-2026-11-22 12:40:41 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.529 (p90 2.099) | speed-up vs S1 median 451.8x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.266 (p90 2.593) | speed-up vs S1 median 1.2x | support   22 | covers A_+  22 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.266 (p90 2.593) | speed-up vs S1 median 1.2x | support   22 | covers A_+  22 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support   45 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  191 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.321 (p90 2.186) | speed-up vs S1 median 0.8x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers: Bs (median effectivity of S1 1.408):
-2026-11-22 12:40:41 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.562 (p90 2.356) | speed-up vs S1 median 421.6x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.306 (p90 2.611) | speed-up vs S1 median 1.2x | support   22 | covers A_+  22 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.306 (p90 2.611) | speed-up vs S1 median 1.2x | support   22 | covers A_+  22 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   44 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support  191 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.475 (p90 2.987) | speed-up vs S1 median 0.7x | support  225 | covers A_+ 100 % 
-2026-11-22 12:40:41 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed0.npz (10 arrays)
+2026-11-22 12:51:24 INFO    x4_multipliers: layered: n_contact=225, tau_gap=0.003 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed0.npz
+2026-11-22 12:52:46 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 82.6 s
+2026-11-22 12:53:43 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 56.1 s
+2026-11-22 12:53:53 INFO    x4_multipliers: R0s (median effectivity of S1 1.021):
+2026-11-22 12:53:53 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.789 (p90 2.360) | speed-up vs S1 median 493.9x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   29 | covers A_+  97 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   29 | covers A_+  97 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support   84 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.569 (p90 2.430) | speed-up vs S1 median 0.7x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers: Bs (median effectivity of S1 1.023):
+2026-11-22 12:53:53 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 2.074 (p90 3.008) | speed-up vs S1 median 430.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:53 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:54 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   29 | covers A_+  97 % 
+2026-11-22 12:53:54 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   30 | covers A_+  98 % 
+2026-11-22 12:53:54 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support   84 | covers A_+ 100 % 
+2026-11-22 12:53:54 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:54 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.538 (p90 2.532) | speed-up vs S1 median 0.8x | support  225 | covers A_+ 100 % 
+2026-11-22 12:53:54 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed0.npz (10 arrays)

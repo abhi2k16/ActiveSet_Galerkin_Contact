@@ -1,0 +1,20 @@
+2026-11-22 12:54:54 INFO    x4_multipliers: layered: n_contact=225, tau_gap=0.003 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed1.npz
+2026-11-22 12:55:43 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 48.8 s
+2026-11-22 12:56:36 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 52.4 s
+2026-11-22 12:56:46 INFO    x4_multipliers: R0s (median effectivity of S1 1.042):
+2026-11-22 12:56:46 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 1.727 (p90 2.225) | speed-up vs S1 median 458.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   28 | covers A_+  95 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   28 | covers A_+  95 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support   82 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.580 (p90 2.135) | speed-up vs S1 median 0.7x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers: Bs (median effectivity of S1 1.046):
+2026-11-22 12:56:46 INFO    x4_multipliers:   S0       Delta/Delta_S1 median 2.000 (p90 2.842) | speed-up vs S1 median 425.8x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1       Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_A    Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   28 | covers A_+  95 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t1   Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.2x | support   29 | covers A_+  97 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t10  Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.1x | support   82 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S1r_t100 Delta/Delta_S1 median 1.000 (p90 1.000) | speed-up vs S1 median 1.0x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    x4_multipliers:   S2       Delta/Delta_S1 median 1.344 (p90 1.953) | speed-up vs S1 median 0.8x | support  225 | covers A_+ 100 % 
+2026-11-22 12:56:46 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x4\layered_seed1.npz (10 arrays)

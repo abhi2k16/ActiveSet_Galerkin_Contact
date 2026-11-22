@@ -1,0 +1,17 @@
+2026-11-22 12:49:53 INFO    x3_active_set: membrane_shift_mild: 10 rules x 2 basis sizes -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x3\membrane_shift_mild_seed2.npz
+2026-11-22 12:49:56 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 2.6 s
+2026-11-22 12:50:01 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 3.0 s
+2026-11-22 12:50:18 INFO    x3_active_set: r=40 done (200 queries)
+2026-11-22 12:50:34 INFO    x3_active_set: r=60 done (200 queries)
+2026-11-22 12:50:34 INFO    x3_active_set: r=60 | R0: acc 23 %, eff 1.40, |M| 9, ||lam_M||_1 2 | B: acc 8 %, eff 1.99, |M| 18, ||lam_M||_1 4.69 (medians)
+2026-11-22 12:50:34 INFO    x3_active_set: multiplier     recall 0.96 over-snap 0.29 |A^|  31 | R0s err 55.18 % eff 1.00 | Bs err 37.34 % eff 1.00 | accepted best 23 %
+2026-11-22 12:50:34 INFO    x3_active_set: gap_0.0001     recall 0.67 over-snap 0.00 |A^|  16 | R0s err 13.47 % eff 1.35 | Bs err 12.66 % eff 1.57 | accepted best 24 %
+2026-11-22 12:50:34 INFO    x3_active_set: gap_0.0003     recall 0.69 over-snap 0.00 |A^|  17 | R0s err 13.46 % eff 1.34 | Bs err 12.66 % eff 1.52 | accepted best 24 %
+2026-11-22 12:50:34 INFO    x3_active_set: gap_0.001      recall 0.77 over-snap 0.00 |A^|  18 | R0s err 13.45 % eff 1.27 | Bs err 12.33 % eff 1.41 | accepted best 26 %
+2026-11-22 12:50:34 INFO    x3_active_set: gap_0.003      recall 0.88 over-snap 0.07 |A^|  20 | R0s err 14.09 % eff 1.11 | Bs err 11.77 % eff 1.15 | accepted best 34 %
+2026-11-22 12:50:34 INFO    x3_active_set: gap_0.01       recall 1.00 over-snap 0.23 |A^|  26 | R0s err 23.28 % eff 1.00 | Bs err 16.09 % eff 1.00 | accepted best 24 %
+2026-11-22 12:50:34 INFO    x3_active_set: both_0.01      recall 0.95 over-snap 0.10 |A^|  21 | R0s err 17.72 % eff 1.00 | Bs err 11.94 % eff 1.00 | accepted best 29 %
+2026-11-22 12:50:34 INFO    x3_active_set: neighbours_1   recall 0.85 over-snap 0.17 |A^|  24 | R0s err 18.96 % eff 1.00 | Bs err 11.32 % eff 1.01 | accepted best 28 %
+2026-11-22 12:50:34 INFO    x3_active_set: neighbours_3   recall 0.92 over-snap 0.26 |A^|  28 | R0s err 26.82 % eff 1.00 | Bs err 15.62 % eff 1.00 | accepted best 24 %
+2026-11-22 12:50:34 INFO    x3_active_set: neighbours_5   recall 0.95 over-snap 0.30 |A^|  30 | R0s err 31.83 % eff 1.00 | Bs err 18.32 % eff 1.00 | accepted best 24 %
+2026-11-22 12:50:34 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x3\membrane_shift_mild_seed2.npz (25 arrays)
