@@ -52,6 +52,12 @@ class RightInverse:
             return self.B.T @ (self.scale * d)
         return self.Q @ sla.solve_triangular(self.R, d, trans="T")
 
+    def apply_transpose(self, w: np.ndarray) -> np.ndarray:
+        """``(B^+)^T w``."""
+        if self.scale is not None:
+            return self.scale * (self.B @ w)
+        return sla.solve_triangular(self.R, self.Q.T @ w)
+
 
 def is_selection(B: sp.csr_matrix) -> bool:
     """One positive nonzero per row, in distinct columns."""
