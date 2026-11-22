@@ -12,6 +12,7 @@
   <img alt="ROM engine" src="https://img.shields.io/badge/ROM-rom__engine-purple">
   <img alt="Problem class" src="https://img.shields.io/badge/problem-frictionless%20unilateral%20contact-orange">
   <img alt="Benchmarks" src="https://img.shields.io/badge/benchmarks-membrane%20%7C%20block%20%7C%20layered-teal">
+  <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
@@ -209,4 +210,5 @@ finite-precision modules are interfaces or stubs until their planned work is com
 
 ## License and citation
 
-No license file is currently included. Add a citation entry after the manuscript is published.
+Released under the MIT License. See [LICENSE](LICENSE) for details. A citation entry will be added after the
+manuscript is published.
