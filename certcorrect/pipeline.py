@@ -25,7 +25,7 @@ from .rom import GalerkinROM, ReducedSolution
 LOG = logging.getLogger(__name__)
 CONTACT_GAP_RTOL = 1e-10          # g^_i <= CONTACT_GAP_RTOL * char_gap counts as "in contact" (coverage diagnostic)
 CORRECTIONS = ("R0", "R0s")                  # default set (Gate 0 runs)
-ALL_CORRECTIONS = ("R0", "R0s", "B", "Bs")
+ALL_CORRECTIONS = ("R0", "R0s", "B", "Bs", "G")   # G: enriched Galerkin baseline (no ROM prediction)
 ACTIVE_SET_RULES = ("multiplier", "gap", "both")
 
 
@@ -154,6 +154,15 @@ class QueryEvaluator:
             return repair_r0(red.u, B, c, self.right_inverse)
         if name == "R0s":
             return repair_r0_snap(red.u, B, c, self.right_inverse, active_hat)
+        if name == "G":
+            if self.projection is None:
+                raise ValueError("call attach_basis(V) before using the baseline G")
+            from .baselines.enriched_galerkin import EnrichedGalerkin
+
+            result = EnrichedGalerkin(self.projection).solve(mu)
+            if not result.ok:
+                LOG.warning("G: dual LCP not solved at mu=%s", np.round(mu, 4))
+            return result.u
         if name in ("B", "Bs"):
             if self.projection is None:
                 raise ValueError("call attach_basis(V) before using the corrections B / Bs")

@@ -113,3 +113,21 @@ def test_liftoff_benchmark_sampling():
     train, test = problem.sample(rng, 50), problem.sample_test(rng, 50)
     assert train[:, 1].max() <= 0.45 and test[:, 1].min() >= 0.55
     assert problem.in_box(train).all() and not problem.in_box(test).any()
+
+
+def test_enriched_galerkin_baseline(setup):
+    """G is feasible, satisfies the reduced KKT conditions, and is exact when u lies in range Z."""
+    from certcorrect.baselines.enriched_galerkin import EnrichedGalerkin
+
+    p, K, c, mu = setup["problem"], setup["K"], setup["c"], setup["mu"]
+    res = EnrichedGalerkin(setup["proj"]["compliance"]).solve(mu)
+    Z = setup["proj"]["compliance"].Z
+    assert res.ok and (p.B @ res.u - c).min() >= -FEAS_TOL and res.nu.min() >= -1e-12
+    stationarity = Z.T @ (K @ (Z @ res.q) - p.load(mu)) - (p.B @ Z).T @ res.nu
+    assert np.abs(stationarity).max() <= 1e-9 * np.abs(Z.T @ p.load(mu)).max()
+    # Enrich V with K^-1 f(mu): for constant K and X = K the exact solution then lies in range Z.
+    V_exact = np.column_stack([setup["V"], setup["solve_k"](p.load(mu))])
+    proj = EnergyProjection(p, V_exact, setup["solve_k"], K, RightInverse.from_constraints(p.B), "compliance",
+                            xinv_bt=setup["s1"].xinv_bt)
+    exact = EnrichedGalerkin(proj).solve(mu)
+    assert energy_norm(K, exact.u - setup["ref"].u) <= 1e-8 * energy_norm(K, setup["ref"].u)

@@ -1,0 +1,13 @@
+2026-11-23 12:16:38 INFO    x1_rate: membrane: n_dof=576, n_contact=144, r_primal=(5, 10, 20, 40, 60), r_dual=96 (nmf), rule=gap (tau_lambda=1e-08, tau_gap=0.003) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.003_R0s-Bs-G\membrane_seed0.npz
+2026-11-23 12:16:41 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 3.2 s
+2026-11-23 12:16:47 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 3.0 s
+2026-11-23 12:16:50 INFO    x1_rate: r=  5: ROM ok 200/200 | median rel. error G0 2.68e-01 | R0s err 2.56e-01 eff 1.10 | Bs err 2.65e-01 eff 1.09 | G err 6.67e-02 eff 1.00
+2026-11-23 12:16:54 INFO    x1_rate: r= 10: ROM ok 200/200 | median rel. error G0 1.25e-01 | R0s err 1.24e-01 eff 1.09 | Bs err 1.23e-01 eff 1.08 | G err 1.89e-02 eff 1.00
+2026-11-23 12:16:58 INFO    x1_rate: r= 20: ROM ok 200/200 | median rel. error G0 7.87e-02 | R0s err 7.63e-02 eff 1.04 | Bs err 7.62e-02 eff 1.04 | G err 1.68e-03 eff 1.00
+2026-11-23 12:17:03 INFO    x1_rate: r= 40: ROM ok 200/200 | median rel. error G0 3.69e-02 | R0s err 3.87e-02 eff 1.00 | Bs err 3.60e-02 eff 1.00 | G err 6.14e-05 eff 1.00
+2026-11-23 12:17:07 INFO    x1_rate: r= 60: ROM ok 200/200 | median rel. error G0 1.95e-02 | R0s err 2.65e-02 eff 1.00 | Bs err 2.20e-02 eff 1.00 | G err 6.16e-06 eff 1.00
+2026-11-23 12:17:07 INFO    x1_rate: R0s  certificate rate: all 1.04 | A_+ covered 1.00 (511) | not covered 0.99 (489) | accepted 33 %
+2026-11-23 12:17:07 INFO    x1_rate: Bs   certificate rate: all 1.04 | A_+ covered 1.00 (511) | not covered 0.99 (489) | accepted 36 %
+2026-11-23 12:17:07 INFO    x1_rate: G    certificate rate: all 1.00 | A_+ covered 1.00 (1000) | not covered nan (0) | accepted 86 %
+2026-11-23 12:17:07 INFO    x1_rate: best certificate rate 1.00 | accepted 86 % | chosen: R0s 0 %, Bs 0 %, G 100 % | median rel. Delta by r: [6.673e-02 1.889e-02 1.680e-03 6.142e-05 6.160e-06]
+2026-11-23 12:17:07 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.003_R0s-Bs-G\membrane_seed0.npz (41 arrays)

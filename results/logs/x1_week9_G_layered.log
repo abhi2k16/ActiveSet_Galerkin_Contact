@@ -1,0 +1,12 @@
+2026-11-23 12:14:30 INFO    x1_rate: layered: n_dof=3375, n_contact=225, r_primal=(4, 8, 15, 30), r_dual=12 (nmf), rule=gap (tau_lambda=1e-08, tau_gap=0.003) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.003_R0s-Bs-G\layered_seed0.npz
+2026-11-23 12:15:26 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 56.0 s
+2026-11-23 12:16:18 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 51.3 s
+2026-11-23 12:16:23 INFO    x1_rate: r=  4: ROM ok 100/100 | median rel. error G0 1.19e-01 | R0s err 1.19e-01 eff 1.12 | Bs err 1.12e-01 eff 1.12 | G err 1.02e-02 eff 1.08
+2026-11-23 12:16:27 INFO    x1_rate: r=  8: ROM ok 100/100 | median rel. error G0 5.22e-02 | R0s err 5.04e-02 eff 1.07 | Bs err 4.44e-02 eff 1.08 | G err 2.04e-03 eff 1.09
+2026-11-23 12:16:31 INFO    x1_rate: r= 15: ROM ok 100/100 | median rel. error G0 3.30e-02 | R0s err 3.61e-02 eff 1.03 | Bs err 3.06e-02 eff 1.04 | G err 8.68e-04 eff 1.09
+2026-11-23 12:16:35 INFO    x1_rate: r= 30: ROM ok 100/100 | median rel. error G0 3.41e-02 | R0s err 3.23e-02 eff 1.02 | Bs err 2.58e-02 eff 1.02 | G err 3.94e-04 eff 1.08
+2026-11-23 12:16:35 INFO    x1_rate: R0s  certificate rate: all 1.07 | A_+ covered 1.03 (298) | not covered 1.00 (102) | accepted 44 %
+2026-11-23 12:16:35 INFO    x1_rate: Bs   certificate rate: all 1.06 | A_+ covered 1.01 (298) | not covered 0.99 (102) | accepted 50 %
+2026-11-23 12:16:35 INFO    x1_rate: G    certificate rate: all 1.01 | A_+ covered 1.01 (398) | not covered 1.04 (2) | accepted 100 %
+2026-11-23 12:16:35 INFO    x1_rate: best certificate rate 1.01 | accepted 100 % | chosen: R0s 0 %, Bs 0 %, G 100 % | median rel. Delta by r: [0.011 0.002 0.001 0.   ]
+2026-11-23 12:16:35 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x1_gap_tg0.003_R0s-Bs-G\layered_seed0.npz (41 arrays)
