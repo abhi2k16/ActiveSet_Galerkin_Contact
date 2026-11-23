@@ -1,0 +1,57 @@
+2026-11-23 14:06:32 INFO    compression_stage1: levels ((16, 4), (20, 5), (24, 6)), k (5, 10, 20, 40, 80), spaces ('coordinate', 'response_pod', 'compressed', 'control') -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\compression_stage1\layered_seed0.npz
+2026-11-23 14:07:04 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 29.8 s
+2026-11-23 14:07:37 INFO    compression_stage1: n_c 225: response-snapshot X-singular values (normalised) at (1, 5, 10, 20, 40, 80): [1.00e+00 9.13e-02 3.38e-02 1.45e-02 4.25e-03 1.50e-04] | multiplier snapshots: [1.00e+00 1.31e-01 6.91e-02 2.91e-02 8.65e-03 2.72e-04]
+2026-11-23 14:07:37 INFO    compression_stage1:   coordinate    k=  5 dim  20 | err 3.205 % | cert  53.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   response_pod  k=  5 dim  20 | err 3.058 % | cert  63.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   compressed    k=  5 dim  20 | err 3.235 % | cert  50.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   control       k=  5 dim  20 | err 3.028 % | cert  66.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   coordinate    k= 10 dim  25 | err 2.935 % | cert  76.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   response_pod  k= 10 dim  25 | err 2.732 % | cert  86.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   compressed    k= 10 dim  25 | err 3.005 % | cert  83.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   control       k= 10 dim  25 | err 2.517 % | cert  93.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   coordinate    k= 20 dim  35 | err 2.392 % | cert  93.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   response_pod  k= 20 dim  35 | err 2.188 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   compressed    k= 20 dim  35 | err 2.126 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   control       k= 20 dim  35 | err 2.083 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   coordinate    k= 40 dim  55 | err 0.868 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   response_pod  k= 40 dim  55 | err 1.094 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   compressed    k= 40 dim  55 | err 1.185 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:07:37 INFO    compression_stage1:   control       k= 40 dim  55 | err 1.000 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:09:41 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 117.4 s
+2026-11-23 14:11:31 INFO    compression_stage1: n_c 361: response-snapshot X-singular values (normalised) at (1, 5, 10, 20, 40, 80): [1.00e+00 9.31e-02 3.35e-02 1.43e-02 4.56e-03 6.02e-04] | multiplier snapshots: [1.   0.13 0.07 0.03 0.01 0.  ]
+2026-11-23 14:11:31 INFO    compression_stage1:   coordinate    k=  5 dim  20 | err 3.489 % | cert  30.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   response_pod  k=  5 dim  20 | err 2.819 % | cert  63.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   compressed    k=  5 dim  20 | err 3.024 % | cert  46.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   control       k=  5 dim  20 | err 3.012 % | cert  63.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   coordinate    k= 10 dim  25 | err 3.185 % | cert  63.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   response_pod  k= 10 dim  25 | err 2.599 % | cert  80.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   compressed    k= 10 dim  25 | err 2.632 % | cert  80.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   control       k= 10 dim  25 | err 2.508 % | cert  80.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   coordinate    k= 20 dim  35 | err 2.670 % | cert  83.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   response_pod  k= 20 dim  35 | err 2.112 % | cert  96.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   compressed    k= 20 dim  35 | err 2.058 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   control       k= 20 dim  35 | err 2.046 % | cert  96.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   coordinate    k= 40 dim  55 | err 1.918 % | cert  93.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   response_pod  k= 40 dim  55 | err 1.588 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   compressed    k= 40 dim  55 | err 1.548 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:11:31 INFO    compression_stage1:   control       k= 40 dim  55 | err 1.575 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:16:24 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 281.5 s
+2026-11-23 14:20:27 INFO    compression_stage1: n_c 529: response-snapshot X-singular values (normalised) at (1, 5, 10, 20, 40, 80): [1.00e+00 8.80e-02 3.26e-02 1.33e-02 4.38e-03 6.50e-04] | multiplier snapshots: [1.   0.13 0.07 0.03 0.01 0.  ]
+2026-11-23 14:20:27 INFO    compression_stage1:   coordinate    k=  5 dim  20 | err 3.378 % | cert  16.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   response_pod  k=  5 dim  20 | err 2.961 % | cert  56.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   compressed    k=  5 dim  20 | err 3.205 % | cert  36.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   control       k=  5 dim  20 | err 3.022 % | cert  60.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   coordinate    k= 10 dim  25 | err 3.330 % | cert  36.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   response_pod  k= 10 dim  25 | err 2.721 % | cert  76.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   compressed    k= 10 dim  25 | err 2.794 % | cert  76.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   control       k= 10 dim  25 | err 2.492 % | cert  80.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   coordinate    k= 20 dim  35 | err 2.953 % | cert  60.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   response_pod  k= 20 dim  35 | err 2.202 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   compressed    k= 20 dim  35 | err 2.183 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   control       k= 20 dim  35 | err 2.057 % | cert  96.7 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   coordinate    k= 40 dim  55 | err 2.500 % | cert  93.3 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   response_pod  k= 40 dim  55 | err 1.757 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   compressed    k= 40 dim  55 | err 1.685 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1:   control       k= 40 dim  55 | err 1.785 % | cert 100.0 % (fails 0) | QP feasible 100 %
+2026-11-23 14:20:27 INFO    compression_stage1: STOP CRITERION (n_c = 529): compression NOT pursued — reference: coordinate k=40 certifies 93 %, target 93 % with k <= 20; compression hits: [('response_pod', 20), ('compressed', 20)]; control matches coordinate at k_ref (share and error): True
+2026-11-23 14:20:27 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\compression_stage1\layered_seed0.npz (18 arrays)
