@@ -65,15 +65,29 @@ def fig_e2() -> None:
     save_figure(fig, "fig_e2_support_floor")
 
 
+def fig_halfrate() -> None:
+    d = np.load(RESULTS / "e_halfrate" / "halfrate.npz", allow_pickle=True)
+    eps = d["eps"]
+    fig, ax = plt.subplots(figsize=(3.6, 2.8))
+    ax.loglog(eps, d["error"], "-", color="k", label=r"error $\|e\|_K=\varepsilon$")
+    ax.loglog(eps, d["min_delta"], "o", ms=3, color="C3", label=r"$\min_{\ell \geq 0}\Delta^\star(\ell)$")
+    ax.loglog(eps, d["closed_form"], "-", color="C3", lw=0.8, label=r"$\sqrt{\varepsilon(1+\varepsilon)}$")
+    ax.loglog(eps, d["delta_s1"], "s", ms=3, mfc="none", color="C0", label=r"S1 multiplier")
+    ax.set_xlabel(r"error $\varepsilon$")
+    ax.set_ylabel("certificate")
+    ax.legend(loc="lower right", fontsize=6)
+    save_figure(fig, "fig_halfrate")
+
+
 def main() -> int:
     setup_logging()
     use_style()
     try:
-        fig_e1(), fig_e2()
+        fig_e1(), fig_e2(), fig_halfrate()
     except FileNotFoundError as exc:
         LOG.error("missing result file: %s (run the experiments first)", exc)
         return EXIT_BAD_INPUT
-    LOG.info("wrote fig_e1_effectivity and fig_e2_support_floor to paper/figures")
+    LOG.info("wrote fig_e1_effectivity, fig_e2_support_floor and fig_halfrate to paper/figures")
     return EXIT_OK
 
 
