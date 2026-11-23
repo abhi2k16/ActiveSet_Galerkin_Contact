@@ -51,7 +51,10 @@ class OnlineResult:
     rom_ok: bool
     lcp_ok: bool
     seconds: dict = field(default_factory=dict)
-    delta_z: np.ndarray | None = None     # projection coefficients (Bs only)
+    delta_z: np.ndarray | None = None     # coefficients in Z (Bs, G, GS)
+    bxr: np.ndarray | None = None         # B X^-1 r for the certificate multiplier (selector diagnostics)
+    selected: np.ndarray | None = None    # GS: selected contact rows S
+    feasible: bool = True                 # GS: working-set QP reached feasibility before the clean-up
 
 
 class OnlineCertifier:
@@ -109,15 +112,19 @@ class OnlineCertifier:
 
     # ------------------------------------------------------------------ online
     def evaluate(self, mu: np.ndarray, tau: float, tau_gap: float, snap: bool = True,
-                 support_factor: float | None = None, correction: str = "R0s") -> OnlineResult:
+                 support_factor: float | None = None, correction: str = "R0s", select=None,
+                 predicted_factor: float = 1.0) -> OnlineResult:
         """ROM solve, correction (``R0s``, or R0 with ``snap=False``, or ``Bs``) with the gap rule, S1 (or
         S1-restricted on ``S_t`` with ``t = support_factor * tau_gap * char_gap``), certificate and acceptance, all
         from reduced quantities."""
-        if correction not in ("R0s", "Bs", "G"):
-            raise ValueError("correction must be 'R0s', 'Bs' or 'G'")
-        if correction in ("Bs", "G") and self.projection is None:
-            raise ValueError("construct OnlineCertifier with projection=EnergyProjection(...) to use Bs or G")
-        uses_z = correction in ("Bs", "G")
+        if correction not in ("R0s", "Bs", "G", "GS"):
+            raise ValueError("correction must be 'R0s', 'Bs', 'G' or 'GS'")
+        if correction in ("Bs", "G", "GS") and self.projection is None:
+            raise ValueError("construct OnlineCertifier with projection=... to use Bs, G or GS")
+        if correction == "GS" and select is None:
+            raise ValueError("GS needs select = row indices or 'predicted'")
+        uses_z = correction in ("Bs", "G", "GS")
+        selected, feasible = None, True
         p, sec = self.problem, {}
         t0 = time.perf_counter()
         theta = p.theta(mu)
@@ -130,18 +137,32 @@ class OnlineCertifier:
         else:
             f_mu = p.load(mu)                                              # hybrid: O(N) load evaluation
             b = self.V.T @ f_mu
-        if correction == "G":            # baseline G does not use the ROM prediction
+        if correction == "G" or (correction == "GS" and not isinstance(select, str)):   # no ROM prediction needed
             u_r, lam_r, rom_ok = np.zeros(self.r), np.zeros(self.W.shape[1]), True
         else:
             u_r, lam_r, _, rom_ok = solve_reduced_contact(A, b, self.B_r, self.W.T @ c)
         t1 = time.perf_counter()
         sec["rom"] = t1 - t0
         g_tilde = self.BV @ u_r - c
-        snapping = snap and correction != "G"
+        snapping = snap and correction in ("R0s", "Bs")
         a_hat = by_gap(g_tilde, tau_gap, p.char_gap) if snapping else np.zeros(0, dtype=int)
         delta_z = np.zeros(self.m)
         g_pre = g_tilde
-        if correction == "G":
+        if correction == "GS":
+            from .selective import solve_working_set
+
+            selected = by_gap(g_tilde, predicted_factor * tau_gap, p.char_gap) if isinstance(select, str) else \
+                np.asarray(select, dtype=int)
+            cols = self.projection.columns(selected)
+            u_r = np.zeros(self.r)          # V lies inside Z_S: the ROM coefficients only served the selection
+            H = sum(t * Hq[np.ix_(cols, cols)] for t, Hq in zip(theta, self.projection.H_terms))
+            b_z = sum(ph * zf[cols] for ph, zf in zip(phi, self.Zf)) if self.is_affine_load else \
+                self.projection.Z[:, cols].T @ f_mu
+            q_s, feasible, _ = solve_working_set(H, b_z, self.projection.C[:, cols], c)
+            delta_z = np.zeros(self.m)
+            delta_z[cols] = q_s
+            g_pre = self.projection.C[:, cols] @ q_s - c
+        elif correction == "G":
             H = sum(t * Hq for t, Hq in zip(theta, self.projection.H_terms))
             cf = np.linalg.cholesky(0.5 * (H + H.T))
             Ct = self.projection.C.T
@@ -175,8 +196,9 @@ class OnlineCertifier:
             idx += [self.idx_v[q], self.idx_p[q][rows]]
             coef += [-t * u_r, -t * d[rows]]
             if uses_z:
-                idx.append(self.idx_z[q])
-                coef.append(-t * delta_z)
+                nz = np.flatnonzero(delta_z)
+                idx.append(self.idx_z[q][nz])
+                coef.append(-t * delta_z[nz])
         idx, coef = np.concatenate(idx), np.concatenate(coef)
         BXa = self.BR[:, idx] @ coef
         if f_mu is not None:
@@ -207,12 +229,13 @@ class OnlineCertifier:
         eta = float(lam @ g_hat)
         delta = quadratic_root_bound(rho_bar, eta)
         x = np.concatenate([u_r, d, delta_z])
-        keep = np.concatenate([np.arange(self.r), self.r + rows, self.r + self.n_c + np.arange(self.m)])             if uses_z else np.concatenate([np.arange(self.r), self.r + rows])
+        keep = np.concatenate([np.arange(self.r), self.r + rows, self.r + self.n_c + np.flatnonzero(delta_z)])             if uses_z else np.concatenate([np.arange(self.r), self.r + rows])
         u_norm2 = sum(t * (x[keep] @ (Eq[np.ix_(keep, keep)] @ x[keep])) for t, Eq in zip(theta, self.E))
         u_norm = float(np.sqrt(max(u_norm2, 0.0)))
         sec["certificate"] = time.perf_counter() - t3
+        bxr = BXa + self.S @ lam
         return OnlineResult(u_r, lam_r, d, lam, g_hat, delta, rho_bar, eta, u_norm, is_accepted(delta, u_norm, tau),
-                            bool(rom_ok), bool(lcp_ok), sec, delta_z if uses_z else None)
+                            bool(rom_ok), bool(lcp_ok), sec, delta_z if uses_z else None, bxr, selected, feasible)
 
     def displacement(self, result: OnlineResult) -> np.ndarray:
         """Full-size ``u^ = V u_r + Z delta + B^+ d`` (offline checks and output only; not needed online)."""

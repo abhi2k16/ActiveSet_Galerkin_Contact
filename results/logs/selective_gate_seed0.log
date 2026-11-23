@@ -1,0 +1,45 @@
+2026-11-23 13:01:28 INFO    selective_gate: levels ((16, 4), (20, 5), (24, 6)), budgets (0.05, 0.1, 0.2), predicted factors (1, 10) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\selective_gate\layered_seed0.npz
+2026-11-23 13:01:58 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 27.6 s
+2026-11-23 13:02:32 INFO    selective_gate: n_c 225 (N 3375): FOM cold 454 ms, warm 256 ms
+2026-11-23 13:02:32 INFO    selective_gate:   G                  |S|/n_c 100.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.093 % | online   9.18 ms | net   9.18 ms | vs G  1.00x | vs FOM-warm   27.9x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-random-0.05     |S|/n_c   4.9 % | cert  36.7 % (fails 0, QP feasible 100 %) | err 3.454 % | online   3.47 ms | net 165.62 ms | vs G  0.06x | vs FOM-warm    1.5x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-force-0.05      |S|/n_c   4.9 % | cert  83.3 % (fails 0, QP feasible 100 %) | err 2.867 % | online   2.62 ms | net  45.29 ms | vs G  0.20x | vs FOM-warm    5.7x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-greedy-0.05     |S|/n_c   4.9 % | cert  80.0 % (fails 0, QP feasible 100 %) | err 2.935 % | online   2.26 ms | net  53.46 ms | vs G  0.17x | vs FOM-warm    4.8x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-random-0.1      |S|/n_c   9.8 % | cert  36.7 % (fails 0, QP feasible 100 %) | err 3.278 % | online   2.55 ms | net 164.70 ms | vs G  0.06x | vs FOM-warm    1.6x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-force-0.1       |S|/n_c   9.8 % | cert  96.7 % (fails 0, QP feasible 100 %) | err 2.163 % | online   1.98 ms | net  10.52 ms | vs G  0.87x | vs FOM-warm   24.3x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-greedy-0.1      |S|/n_c   9.8 % | cert  90.0 % (fails 0, QP feasible 100 %) | err 2.458 % | online   2.05 ms | net  27.65 ms | vs G  0.33x | vs FOM-warm    9.3x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-random-0.2      |S|/n_c  20.0 % | cert  53.3 % (fails 0, QP feasible 100 %) | err 3.088 % | online   2.51 ms | net 122.00 ms | vs G  0.08x | vs FOM-warm    2.1x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-force-0.2       |S|/n_c  20.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.547 % | online   2.16 ms | net   2.16 ms | vs G  4.25x | vs FOM-warm  118.5x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-greedy-0.2      |S|/n_c  20.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 1.054 % | online   2.19 ms | net   2.19 ms | vs G  4.20x | vs FOM-warm  117.1x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-pred-1          |S|/n_c  13.8 % | cert  96.7 % (fails 0, QP feasible 100 %) | err 0.632 % | online   2.49 ms | net  11.03 ms | vs G  0.83x | vs FOM-warm   23.2x
+2026-11-23 13:02:32 INFO    selective_gate:   GS-pred-10         |S|/n_c  37.6 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.057 % | online   3.51 ms | net   3.51 ms | vs G  2.62x | vs FOM-warm   72.9x
+2026-11-23 13:04:12 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 94.5 s
+2026-11-23 13:06:14 INFO    selective_gate: n_c 361 (N 6498): FOM cold 1563 ms, warm 1146 ms
+2026-11-23 13:06:14 INFO    selective_gate:   G                  |S|/n_c 100.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.062 % | online  29.57 ms | net  29.57 ms | vs G  1.00x | vs FOM-warm   38.7x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-random-0.05     |S|/n_c   5.0 % | cert  26.7 % (fails 0, QP feasible 100 %) | err 3.538 % | online  14.79 ms | net 854.98 ms | vs G  0.03x | vs FOM-warm    1.3x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-force-0.05      |S|/n_c   5.0 % | cert  80.0 % (fails 0, QP feasible 100 %) | err 2.705 % | online  15.42 ms | net 244.56 ms | vs G  0.12x | vs FOM-warm    4.7x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-greedy-0.05     |S|/n_c   5.0 % | cert  66.7 % (fails 0, QP feasible 100 %) | err 3.202 % | online  15.13 ms | net 397.03 ms | vs G  0.07x | vs FOM-warm    2.9x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-random-0.1      |S|/n_c  10.0 % | cert  23.3 % (fails 0, QP feasible 100 %) | err 3.406 % | online  12.63 ms | net 891.00 ms | vs G  0.03x | vs FOM-warm    1.3x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-force-0.1       |S|/n_c  10.0 % | cert  90.0 % (fails 0, QP feasible 100 %) | err 1.951 % | online   4.28 ms | net 118.85 ms | vs G  0.25x | vs FOM-warm    9.6x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-greedy-0.1      |S|/n_c  10.0 % | cert  93.3 % (fails 0, QP feasible 100 %) | err 2.536 % | online   4.39 ms | net  80.77 ms | vs G  0.37x | vs FOM-warm   14.2x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-random-0.2      |S|/n_c  19.9 % | cert  46.7 % (fails 0, QP feasible 100 %) | err 3.194 % | online   6.28 ms | net 617.33 ms | vs G  0.05x | vs FOM-warm    1.9x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-force-0.2       |S|/n_c  19.9 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.559 % | online   4.46 ms | net   4.46 ms | vs G  6.62x | vs FOM-warm  256.7x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-greedy-0.2      |S|/n_c  19.9 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 1.008 % | online   4.49 ms | net   4.49 ms | vs G  6.59x | vs FOM-warm  255.4x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-pred-1          |S|/n_c  14.7 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.473 % | online   4.39 ms | net   4.39 ms | vs G  6.74x | vs FOM-warm  261.1x
+2026-11-23 13:06:14 INFO    selective_gate:   GS-pred-10         |S|/n_c  44.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.027 % | online   8.45 ms | net   8.45 ms | vs G  3.50x | vs FOM-warm  135.5x
+2026-11-23 13:11:23 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 299.2 s
+2026-11-23 13:18:24 INFO    selective_gate: n_c 529 (N 11109): FOM cold 5407 ms, warm 3699 ms
+2026-11-23 13:18:24 INFO    selective_gate:   G                  |S|/n_c 100.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.108 % | online  82.34 ms | net  82.34 ms | vs G  1.00x | vs FOM-warm   44.9x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-random-0.05     |S|/n_c   4.9 % | cert  16.7 % (fails 0, QP feasible 100 %) | err 3.398 % | online  26.65 ms | net 3108.91 ms | vs G  0.03x | vs FOM-warm    1.2x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-force-0.05      |S|/n_c   4.9 % | cert  80.0 % (fails 0, QP feasible 100 %) | err 2.812 % | online  25.12 ms | net 764.87 ms | vs G  0.11x | vs FOM-warm    4.8x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-greedy-0.05     |S|/n_c   4.9 % | cert  60.0 % (fails 0, QP feasible 100 %) | err 3.045 % | online  29.02 ms | net 1508.50 ms | vs G  0.05x | vs FOM-warm    2.5x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-random-0.1      |S|/n_c  10.0 % | cert  40.0 % (fails 0, QP feasible 100 %) | err 3.389 % | online  25.68 ms | net 2244.91 ms | vs G  0.04x | vs FOM-warm    1.6x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-force-0.1       |S|/n_c  10.0 % | cert  93.3 % (fails 0, QP feasible 100 %) | err 2.100 % | online  10.85 ms | net 257.43 ms | vs G  0.32x | vs FOM-warm   14.4x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-greedy-0.1      |S|/n_c  10.0 % | cert  96.7 % (fails 0, QP feasible 100 %) | err 2.397 % | online   9.50 ms | net 132.79 ms | vs G  0.62x | vs FOM-warm   27.9x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-random-0.2      |S|/n_c  20.0 % | cert  63.3 % (fails 0, QP feasible 100 %) | err 3.119 % | online  16.09 ms | net 1372.28 ms | vs G  0.06x | vs FOM-warm    2.7x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-force-0.2       |S|/n_c  20.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.529 % | online  10.24 ms | net  10.24 ms | vs G  8.04x | vs FOM-warm  361.3x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-greedy-0.2      |S|/n_c  20.0 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 1.089 % | online  10.48 ms | net  10.48 ms | vs G  7.86x | vs FOM-warm  353.1x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-pred-1          |S|/n_c  15.3 % | cert  96.7 % (fails 0, QP feasible 100 %) | err 0.431 % | online   9.75 ms | net 133.04 ms | vs G  0.62x | vs FOM-warm   27.8x
+2026-11-23 13:18:24 INFO    selective_gate:   GS-pred-10         |S|/n_c  50.5 % | cert 100.0 % (fails 0, QP feasible 100 %) | err 0.032 % | online  24.87 ms | net  24.87 ms | vs G  3.31x | vs FOM-warm  148.7x
+2026-11-23 13:18:24 INFO    selective_gate: GATE (n_c = 529): FAIL
+2026-11-23 13:18:24 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\selective_gate\layered_seed0.npz (189 arrays)
