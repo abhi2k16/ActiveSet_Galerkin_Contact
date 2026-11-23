@@ -33,7 +33,7 @@ LABELS = {
     "Thm 3.7 eff bound": r"\cref{thm:missed}: effectivity bound",
     "Cor 3.8 localized": r"\cref{cor:localized}: $\lambda^T\hat g\le\|\lambda_{\mathcal M}\|_2\|\hat g_{\mathcal M}\|_2$",
     "Thm 3.9 upper": r"\cref{thm:support}: upper bound",
-    "Thm 3.9 lower (floor)": r"\cref{thm:support}: lower bound (floor)",
+    "Thm 3.9 lower (floor)": r"\cref{thm:support}: $(\sigma_S-\sqrt{\gamma_X}\|e\|)/\sqrt{\alpha_X}\le\Delta^\star$",
     "Thm 3.9 sigma_S > 0 iff A+ not in S": r"\cref{thm:support}: $\sigma_S>0\iff\mathcal A_+\not\subseteq S$",
     "Prop 2.3 energy identity": r"\cref{prop:gap}: $J(\hat u)-J(u)=\frac12\|e\|^2+\lambda^T\hat g$",
     "Prop 2.3 energy identity (direct J difference, diagnostic)": r"same, direct evaluation (diagnostic, rounding allowance)",
