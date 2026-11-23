@@ -133,8 +133,9 @@ for s in 0 1 2; do
   done
   python experiments/e3_random_instances.py --seed $s --n-instances 1000   # E3: property tests on random instances
 done
-python experiments/e_tables.py      # paper/tables/e1_exactness.tex, e2_support_floor.tex, e3_random.tex
-python experiments/e_figures.py     # paper/figures/fig_e1_effectivity, fig_e2_support_floor (PDF and PNG)
+python experiments/e_halfrate.py     # half-rate example of Prop. 4.1 (analytic example, certificate code)
+python experiments/e_tables.py      # paper/tables/e1_exactness.tex, e2_support_floor.tex, e3_random.tex, benchmarks.tex
+python experiments/e_figures.py     # paper/figures/fig_e1_effectivity, fig_e2_support_floor, fig_halfrate (PDF and PNG)
 cd paper && latexmk -pdf -outdir=build main.tex
 ```
 

@@ -128,7 +128,7 @@ def main() -> int:
     except FileNotFoundError as exc:
         LOG.error("missing result file: %s (run the experiments first)", exc)
         return EXIT_BAD_INPUT
-    LOG.info("wrote %s", ", ".join(["e1_exactness.tex", "e2_support_floor.tex", "e3_random.tex"]))
+    LOG.info("wrote %s", ", ".join(["e1_exactness.tex", "e2_support_floor.tex", "e3_random.tex", "benchmarks.tex"]))
     return EXIT_OK
 
 
