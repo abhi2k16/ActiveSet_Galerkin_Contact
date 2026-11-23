@@ -48,7 +48,7 @@ def case():
     sol = FullOrderSolver(problem).solve(mu, K=K)
     solve_k = factorized(K.tocsc())
     u_tilde = sol.u + NOISE * np.random.default_rng(1).standard_normal(problem.n_dof)
-    return dict(problem=problem, K=K, f=f, c=c, sol=sol, solve_k=solve_k, u_tilde=u_tilde,
+    return dict(problem=problem, mu=mu, K=K, f=f, c=c, sol=sol, solve_k=solve_k, u_tilde=u_tilde,
                 Bp=RightInverse.from_constraints(problem.B), s1=MinResidualS1(problem.B, solve_k))
 
 
@@ -126,3 +126,54 @@ def test_t3_support_bound_and_floor(case):
     cert = s1_certificate(K, f, B, c, u_hat, solve_k, s1, support=support)
     assert cert.delta <= TWO_OVER_ROOT3 * np.sqrt((e_norm + m_out) ** 2 + excess) * (1 + REL)
     assert cert.delta >= (sigma - e_norm) * (1 - REL)
+
+
+def _shifted_obstacle_setup(case):
+    problem, K, f, c, sol, solve_k = (case[k] for k in ("problem", "K", "f", "c", "sol", "solve_k"))
+    return problem, K, f, c, sol, solve_k, case["s1"]
+
+
+def test_s1_is_the_contact_problem_with_shifted_obstacle(case):
+    """Paper Prop. 3.4: for X = K, S1 gives the exact multiplier of the contact problem with obstacle c + g^/2,
+    rho(l*) = ||u^ - u'||_K with u' its solution; u^ is feasible for it and u' for the original problem."""
+    problem, K, f, c, sol, solve_k, s1 = _shifted_obstacle_setup(case)
+    B = problem.B
+    u_hat = repair_r0(case["u_tilde"], B, c, case["Bp"])
+    g_hat = np.maximum(B @ u_hat - c, 0.0)
+    lam, ok = s1.solve(f - K @ u_hat, g_hat, 1.0)
+    ref = FullOrderSolver(problem).solve(case["mu"], K=K, offset=c + 0.5 * g_hat)       # independent engine solve
+    assert ok and ref.converged
+    np.testing.assert_allclose(lam, ref.lam, atol=1e-8 * np.abs(ref.lam).max())
+    u_prime = solve_k(f + B.T @ lam)
+    np.testing.assert_allclose(u_prime, ref.u, atol=1e-9 * np.abs(ref.u).max())
+    r = f + B.T @ lam - K @ u_hat
+    assert np.sqrt(r @ solve_k(r)) == pytest.approx(energy_norm(K, u_hat - u_prime), rel=1e-9)
+    assert (B @ u_hat - (c + 0.5 * g_hat)).min() >= -1e-12 and (B @ u_prime - c).min() >= -1e-9
+
+
+def test_exact_certification_when_gap_is_between_zero_and_twice_the_true_gap(case):
+    """Paper Cor. 3.5: X = K and 0 <= g^ <= 2 g  =>  S1 multiplier = exact multiplier and Delta* = ||e||_K (eff = 1)."""
+    problem, K, f, c, sol, solve_k, s1 = _shifted_obstacle_setup(case)
+    B, rng = problem.B, np.random.default_rng(11)
+    gap = sol.gap
+    contact_unknowns = np.asarray(B.sum(axis=0)).ravel() > 0
+    delta = 0.02 * np.abs(sol.u).max() * rng.standard_normal(problem.n_dof) * ~contact_unknowns     # free unknowns
+    rows = np.flatnonzero(B.sum(axis=0) > 0)                                                       # node-selection B
+    pos = {int(j): i for i, j in enumerate(B.indices)}                                              # column -> row
+    for j in np.flatnonzero(contact_unknowns):
+        i = pos[int(j)]
+        delta[j] = rng.random() * gap[i] if gap[i] > 1e-12 else 0.0                                 # 0 <= delta <= g_i
+    u_hat = sol.u + delta
+    g_hat = B @ u_hat - c
+    assert (g_hat >= -1e-12).all() and (g_hat <= 2 * gap + 1e-12).all()
+    lam, ok = s1.solve(f - K @ u_hat, np.maximum(g_hat, 0.0), 1.0)
+    cert = certify(K, f, B, c, u_hat, lam, solve_k, 1.0)
+    e = energy_norm(K, sol.u - u_hat)
+    assert ok and cert.delta == pytest.approx(e, rel=1e-8)
+    np.testing.assert_allclose(lam, sol.lam, atol=1e-8 * np.abs(sol.lam).max())
+    # outside the condition (an active row left open) the certificate is strictly larger than the error
+    i_act = sol.strictly_active[0]
+    u_bad = u_hat + 0.3 * np.abs(sol.u).max() * (B.T @ np.eye(problem.n_contact)[i_act])
+    g_bad = np.maximum(B @ u_bad - c, 0.0)
+    lam_b, _ = s1.solve(f - K @ u_bad, g_bad, 1.0)
+    assert certify(K, f, B, c, u_bad, lam_b, solve_k, 1.0).delta > 1.01 * energy_norm(K, sol.u - u_bad)

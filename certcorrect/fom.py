@@ -47,11 +47,14 @@ class FullOrderSolver:
     def __init__(self, problem: ContactProblem, route: str = "auto", fallback: bool = True):
         self.problem, self.route, self.fallback = problem, route, fallback
 
-    def solve(self, mu: np.ndarray, active0: np.ndarray | None = None, K: sp.spmatrix | None = None) -> FomSolution:
-        """``K`` may be passed when the caller already assembled ``K(mu)``."""
+    def solve(self, mu: np.ndarray, active0: np.ndarray | None = None, K: sp.spmatrix | None = None,
+              offset: np.ndarray | None = None) -> FomSolution:
+        """``K`` may be passed when the caller already assembled ``K(mu)``; ``offset`` replaces ``c(mu)`` (used to solve
+        the shifted-obstacle problem that the S1 multiplier corresponds to; paper Proposition 3.4)."""
         p = self.problem
         K = p.stiffness(mu) if K is None else K
-        f, c = p.load(mu), p.offset(mu)
+        f = p.load(mu)
+        c = p.offset(mu) if offset is None else np.asarray(offset, float)
         start = time.perf_counter()
         res = solve_contact_static_sparse(K, f, p.B, c, route=self.route, active0=active0, fallback=self.fallback)
         seconds = time.perf_counter() - start
