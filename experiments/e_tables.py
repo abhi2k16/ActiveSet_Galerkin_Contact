@@ -12,7 +12,7 @@ import sys
 import numpy as np
 
 from certcorrect.cli import EXIT_BAD_INPUT, EXIT_OK, setup_logging
-from certcorrect.config import RESULTS, TABLES
+from certcorrect.config import RESULTS, SETTINGS, TABLES, make_problem
 
 LOG = logging.getLogger("e_tables")
 SEEDS = (0, 1, 2)
@@ -106,10 +106,25 @@ def table_e3() -> None:
           "lhs/rhs: median (min--max) \\\\\n\\hline")
 
 
+def table_benchmarks() -> None:
+    """Benchmark summary read from the problem objects and the settings in config (nothing typed by hand except the element names)."""
+    elements = {"membrane": "Quad4, scalar Laplace (2D)", "block": "Hex8, linear elasticity (3D)"}
+    rows = []
+    for name in ("membrane", "block"):
+        problem, cfg = make_problem(name), SETTINGS[name]
+        mesh = (f"${problem.n}\\times{problem.n}$ cells" if name == "membrane"
+                else f"${problem.n_xy}\\times{problem.n_xy}\\times{problem.nz}$ cells")
+        sizes = ", ".join(str(r) for r in cfg["r_primal"])
+        rows.append((name, elements[name], mesh, problem.n_dof, problem.n_contact, cfg["n_train"], cfg["n_test"], sizes))
+    labels = ["element", "mesh", "unknowns $N$", "contact rows $n_c$", "training snapshots", "test queries per seed", "primal basis sizes $r$"]
+    body = [f"{lab} & " + " & ".join(str(row[k + 1]) for row in rows) + " \\\\" for k, lab in enumerate(labels)]
+    write("benchmarks.tex", body, "\\begin{tabular}{lll}\n\\hline\n & " + " & ".join(r[0] for r in rows) + " \\\\\n\\hline")
+
+
 def main() -> int:
     setup_logging()
     try:
-        table_e1(), table_e2(), table_e3()
+        table_e1(), table_e2(), table_e3(), table_benchmarks()
     except FileNotFoundError as exc:
         LOG.error("missing result file: %s (run the experiments first)", exc)
         return EXIT_BAD_INPUT
