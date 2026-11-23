@@ -20,7 +20,7 @@ LOG = logging.getLogger("e_figures")
 SEEDS = (0, 1, 2)
 PROBLEMS = ("membrane", "block")
 E1_KINDS = (("R0", "R0"), ("R0s_gap", "R0s (gap rule)"))
-SUPPORTS = (("full", "full S1", "C0"), ("omit_i", r"all rows but $i^*$", "C3"), ("omit_A", r"$A_+$ without $i^*$ (coincides)", "C2"))
+SUPPORTS = (("full", "full S1", "C0"), ("omit_i", r"all rows but $i^*$", "C3"), ("omit_A", r"$A_+$ without $i^*$ (nearly coincides)", "C2"))
 
 
 def load(experiment: str, problem: str) -> dict:

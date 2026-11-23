@@ -118,6 +118,29 @@ Run the test suite before an experiment:
 Do not use the Anaconda base environment. On Windows, a repeated OpenMP runtime can cause `fea_engine` imports
 to fail or NumPy/SciPy to abort.
 
+## Reproducing the short paper (current line of work)
+
+The manuscript in `paper/` (efficiency and limitations of the optimised-multiplier error certificate) uses only the experiments below; the older
+X1-X8 table in the next section belongs to the closed post-solve-correction line and is kept for the documented negative results. Seeds are 0, 1, 2.
+Every table and figure of the paper is generated from the saved files; no number is typed by hand.
+
+```bash
+for s in 0 1 2; do
+  for p in membrane block; do
+    python experiments/e1_exactness.py --problem $p --seed $s          # E1: exactness / effectivity on FE queries
+    python experiments/e2_support_floor.py --problem $p --seed $s      # E2: support floor, controlled sequence
+    python experiments/e2_multiplier_check.py --problem $p --seed $s   # E2 diagnostic: restricted multipliers
+  done
+  python experiments/e3_random_instances.py --seed $s --n-instances 1000   # E3: property tests on random instances
+done
+python experiments/e_tables.py      # paper/tables/e1_exactness.tex, e2_support_floor.tex, e3_random.tex
+python experiments/e_figures.py     # paper/figures/fig_e1_effectivity, fig_e2_support_floor (PDF and PNG)
+cd paper && latexmk -pdf -outdir=build main.tex
+```
+
+Results are written to `results/e1_exactness/`, `results/e2_support_floor/` and `results/e3_random/`. Scope, acceptance criteria and the status of each gate
+are in `../SHORT_PAPER_SCOPE.md`; the four protocol changes made after the first E3 runs are disclosed there and in the paper (Sec. 5.4).
+
 ## Experiments
 
 Run commands from the repository root. Each script is executable directly and supports `--dry-run`.
