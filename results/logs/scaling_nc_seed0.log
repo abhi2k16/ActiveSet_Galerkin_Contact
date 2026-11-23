@@ -1,0 +1,16 @@
+2026-11-23 12:23:16 INFO    scaling_nc: levels ((8, 2), (12, 3), (16, 4), (20, 5), (24, 6)), n_train 60, n_test 30, r 15, r_dual 12 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\scaling_nc\layered_seed0.npz
+2026-11-23 12:23:17 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 0.6 s
+2026-11-23 12:23:17 INFO    scaling_nc: n_dof    441 n_c   49 m   64 | FOM 10 ms | offline 0.2 s (+ training 0.6 s) | R0s: 0.7 ms, cert 90 %, err 2.13 %, net 5.9x | Bs: 1.4 ms, cert 87 %, err 2.06 %, net 3.7x | G: 1.0 ms, cert 100 %, err 0.08 %, net 9.9x
+2026-11-23 12:23:25 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 5.5 s
+2026-11-23 12:23:29 INFO    scaling_nc: n_dof   1452 n_c  121 m  135 | FOM 88 ms | offline 0.6 s (+ training 5.5 s) | R0s: 1.0 ms, cert 87 %, err 2.46 %, net 6.9x | Bs: 3.5 ms, cert 87 %, err 2.14 %, net 5.8x | G: 3.3 ms, cert 100 %, err 0.07 %, net 26.6x
+2026-11-23 12:24:02 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 29.7 s
+2026-11-23 12:24:24 INFO    scaling_nc: n_dof   3375 n_c  225 m  239 | FOM 490 ms | offline 4.0 s (+ training 29.8 s) | R0s: 1.3 ms, cert 73 %, err 3.39 %, net 3.7x | Bs: 10.1 ms, cert 77 %, err 2.87 %, net 3.9x | G: 9.5 ms, cert 100 %, err 0.09 %, net 51.4x
+2026-11-23 12:26:40 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 130.2 s
+2026-11-23 12:28:02 INFO    scaling_nc: n_dof   6498 n_c  361 m  373 | FOM 1873 ms | offline 16.9 s (+ training 130.2 s) | R0s: 2.4 ms, cert 43 %, err 4.96 %, net 1.8x | Bs: 31.4 ms, cert 57 %, err 3.90 %, net 2.2x | G: 32.1 ms, cert 100 %, err 0.06 %, net 58.4x
+2026-11-23 12:33:11 INFO    certcorrect.pipeline: training: 60/60 full-order solves converged in 297.0 s
+2026-11-23 12:36:58 INFO    scaling_nc: n_dof  11109 n_c  529 m  541 | FOM 5001 ms | offline 55.0 s (+ training 297.0 s) | R0s: 5.0 ms, cert 3 %, err 6.53 %, net 1.0x | Bs: 76.4 ms, cert 27 %, err 5.66 %, net 1.3x | G: 81.8 ms, cert 100 %, err 0.11 %, net 61.1x
+2026-11-23 12:36:58 INFO    scaling_nc: R0s online time ~ n_c^0.76; correction stage ~ n_c^0.24
+2026-11-23 12:36:58 INFO    scaling_nc: Bs  online time ~ n_c^1.70; correction stage ~ n_c^1.95
+2026-11-23 12:36:58 INFO    scaling_nc: G   online time ~ n_c^1.84; correction stage ~ n_c^2.03
+2026-11-23 12:36:58 INFO    scaling_nc: FOM-cold ~ n_c^2.63
+2026-11-23 12:36:58 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\scaling_nc\layered_seed0.npz (140 arrays)

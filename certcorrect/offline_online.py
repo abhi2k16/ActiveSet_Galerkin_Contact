@@ -102,6 +102,7 @@ class OnlineCertifier:
         self.V, self.W = V, W
         self.A_terms = tuple(V.T @ (Kq @ V) for Kq in problem.stiffness_terms)
         self.Vf = tuple(V.T @ fj for fj in self.load_terms)
+        self.Zf = tuple(Z.T @ fj for fj in self.load_terms)          # baseline G (enriched Galerkin), affine load
         self.B_r = W.T @ self.BV
         self.offline_seconds = time.perf_counter() - start
         self.n_columns = Wc.shape[1]
@@ -112,10 +113,11 @@ class OnlineCertifier:
         """ROM solve, correction (``R0s``, or R0 with ``snap=False``, or ``Bs``) with the gap rule, S1 (or
         S1-restricted on ``S_t`` with ``t = support_factor * tau_gap * char_gap``), certificate and acceptance, all
         from reduced quantities."""
-        if correction not in ("R0s", "Bs"):
-            raise ValueError("correction must be 'R0s' or 'Bs'")
-        if correction == "Bs" and self.projection is None:
-            raise ValueError("construct OnlineCertifier with projection=EnergyProjection(...) to use Bs")
+        if correction not in ("R0s", "Bs", "G"):
+            raise ValueError("correction must be 'R0s', 'Bs' or 'G'")
+        if correction in ("Bs", "G") and self.projection is None:
+            raise ValueError("construct OnlineCertifier with projection=EnergyProjection(...) to use Bs or G")
+        uses_z = correction in ("Bs", "G")
         p, sec = self.problem, {}
         t0 = time.perf_counter()
         theta = p.theta(mu)
@@ -128,14 +130,30 @@ class OnlineCertifier:
         else:
             f_mu = p.load(mu)                                              # hybrid: O(N) load evaluation
             b = self.V.T @ f_mu
-        u_r, lam_r, _, rom_ok = solve_reduced_contact(A, b, self.B_r, self.W.T @ c)
+        if correction == "G":            # baseline G does not use the ROM prediction
+            u_r, lam_r, rom_ok = np.zeros(self.r), np.zeros(self.W.shape[1]), True
+        else:
+            u_r, lam_r, _, rom_ok = solve_reduced_contact(A, b, self.B_r, self.W.T @ c)
         t1 = time.perf_counter()
         sec["rom"] = t1 - t0
         g_tilde = self.BV @ u_r - c
-        a_hat = by_gap(g_tilde, tau_gap, p.char_gap) if snap else np.zeros(0, dtype=int)
+        snapping = snap and correction != "G"
+        a_hat = by_gap(g_tilde, tau_gap, p.char_gap) if snapping else np.zeros(0, dtype=int)
         delta_z = np.zeros(self.m)
         g_pre = g_tilde
-        if correction == "Bs":
+        if correction == "G":
+            H = sum(t * Hq for t, Hq in zip(theta, self.projection.H_terms))
+            cf = np.linalg.cholesky(0.5 * (H + H.T))
+            Ct = self.projection.C.T
+            HiCt = np.linalg.solve(cf.T, np.linalg.solve(cf, Ct))
+            b_z = sum(ph * zf for ph, zf in zip(phi, self.Zf)) if self.is_affine_load else \
+                self.projection.Z.T @ f_mu
+            Hib = np.linalg.solve(cf.T, np.linalg.solve(cf, b_z))
+            M = self.projection.C @ HiCt
+            nu, _ = solve_complementarity(0.5 * (M + M.T), self.projection.C @ Hib - c)
+            delta_z = Hib + HiCt @ nu
+            g_pre = self.projection.C @ delta_z - c
+        elif correction == "Bs":
             H = sum(t * Hq for t, Hq in zip(theta, self.projection.H_terms))
             cf = np.linalg.cholesky(0.5 * (H + H.T))
             Ct = self.projection.C.T
@@ -156,7 +174,7 @@ class OnlineCertifier:
         for q, t in enumerate(theta):
             idx += [self.idx_v[q], self.idx_p[q][rows]]
             coef += [-t * u_r, -t * d[rows]]
-            if correction == "Bs":
+            if uses_z:
                 idx.append(self.idx_z[q])
                 coef.append(-t * delta_z)
         idx, coef = np.concatenate(idx), np.concatenate(coef)
@@ -189,12 +207,12 @@ class OnlineCertifier:
         eta = float(lam @ g_hat)
         delta = quadratic_root_bound(rho_bar, eta)
         x = np.concatenate([u_r, d, delta_z])
-        keep = np.concatenate([np.arange(self.r), self.r + rows, self.r + self.n_c + np.arange(self.m)])             if correction == "Bs" else np.concatenate([np.arange(self.r), self.r + rows])
+        keep = np.concatenate([np.arange(self.r), self.r + rows, self.r + self.n_c + np.arange(self.m)])             if uses_z else np.concatenate([np.arange(self.r), self.r + rows])
         u_norm2 = sum(t * (x[keep] @ (Eq[np.ix_(keep, keep)] @ x[keep])) for t, Eq in zip(theta, self.E))
         u_norm = float(np.sqrt(max(u_norm2, 0.0)))
         sec["certificate"] = time.perf_counter() - t3
         return OnlineResult(u_r, lam_r, d, lam, g_hat, delta, rho_bar, eta, u_norm, is_accepted(delta, u_norm, tau),
-                            bool(rom_ok), bool(lcp_ok), sec, delta_z if correction == "Bs" else None)
+                            bool(rom_ok), bool(lcp_ok), sec, delta_z if uses_z else None)
 
     def displacement(self, result: OnlineResult) -> np.ndarray:
         """Full-size ``u^ = V u_r + Z delta + B^+ d`` (offline checks and output only; not needed online)."""

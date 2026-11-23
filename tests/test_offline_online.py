@@ -98,3 +98,26 @@ def test_online_bs_equals_full_order(setup):
         ref = certify(K, f, problem.B, c, u_hat, lam, inner.solve, alpha)
         assert res.delta == pytest.approx(ref.delta, rel=1e-6)
         assert res.u_norm == pytest.approx(energy_norm(K, u_hat), rel=1e-9)
+
+
+def test_online_g_equals_full_order(setup):
+    """Baseline G online (reduced Galerkin in Z with Z^T f) reproduces EnrichedGalerkin and its certificate."""
+    from certcorrect.baselines.enriched_galerkin import EnrichedGalerkin
+    from certcorrect.corrections import EnergyProjection
+
+    problem, V, W, inner, Bp, _, mus = setup
+    s1 = MinResidualS1(problem.B, inner.solve)
+    proj = EnergyProjection(problem, V, inner.solve, inner.matrix, Bp, "compliance", xinv_bt=s1.xinv_bt)
+    online = OnlineCertifier(problem, V, W, inner, Bp, projection=proj)
+    for mu in mus:
+        res = online.evaluate(mu, TAU, TAU_GAP, correction="G")
+        u_hat = EnrichedGalerkin(proj).solve(mu).u
+        np.testing.assert_allclose(online.displacement(res), u_hat, atol=1e-9 * np.abs(u_hat).max())
+        K, f, c = problem.stiffness(mu), problem.load(mu), problem.offset(mu)
+        alpha = inner.alpha(mu)
+        lam, _ = s1.solve(f - K @ u_hat, np.maximum(problem.B @ u_hat - c, 0.0), alpha)
+        ref = certify(K, f, problem.B, c, u_hat, lam, inner.solve, alpha)
+        # G can be nearly exact; the Gram quadratic form c^T G c then sits at its cancellation floor
+        # ~ sqrt(eps) * ||u^||_K (module docstring; bounded rigorously in X8), so compare up to that floor.
+        floor = 1e-7 * energy_norm(K, u_hat)
+        assert res.delta == pytest.approx(ref.delta, rel=1e-5, abs=floor)
