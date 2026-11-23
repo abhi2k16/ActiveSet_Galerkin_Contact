@@ -63,6 +63,38 @@ class FullOrderSolver:
                            res.route, res.message, list(res.fallbacks or []))
 
 
+class CondensedSolver:
+    """FOM-cond cost reference for a constant ``K``: ``K`` factorised and the Delassus matrix ``S = B K^-1 B^T`` formed
+    once (offline); per query one solve ``K^-1 f``, the dense LCP ``S lam + (B K^-1 f - c) >= 0`` of size ``n_c`` and the
+    back-substitution ``u = K^-1 f + (K^-1 B^T) lam``. Exact for the full-order problem (no reduction)."""
+
+    def __init__(self, problem: ContactProblem):
+        if problem.k_varies:
+            raise ValueError("the condensed solver reuses one factorisation; it needs a constant K")
+        from scipy.sparse.linalg import factorized
+
+        from .rom import solve_complementarity
+
+        self.problem, self._lcp = problem, solve_complementarity
+        start = time.perf_counter()
+        K = problem.stiffness(problem.lo).tocsc()
+        self.solve_k = factorized(K)
+        bt = problem.B.T.toarray()
+        self.KinvBt = np.column_stack([self.solve_k(col) for col in bt.T])
+        S = problem.B @ self.KinvBt
+        self.S = 0.5 * (S + S.T)
+        self.offline_seconds = time.perf_counter() - start
+
+    def solve(self, mu: np.ndarray) -> tuple[np.ndarray, np.ndarray, bool, float]:
+        """``(u, lam, converged, seconds)``."""
+        p = self.problem
+        start = time.perf_counter()
+        u0 = self.solve_k(p.load(mu))
+        lam, ok = self._lcp(self.S, p.B @ u0 - p.offset(mu))
+        u = u0 + self.KinvBt @ lam
+        return u, lam, bool(ok), time.perf_counter() - start
+
+
 def kkt_residuals(K: sp.spmatrix, f: np.ndarray, B: sp.spmatrix, sol: FomSolution) -> dict:
     """The four KKT residuals of a solution (all ~ 0 for a converged full-order solve)."""
     stationarity = K @ sol.u - f - B.T @ sol.lam

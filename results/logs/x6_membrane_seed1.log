@@ -1,0 +1,9 @@
+2026-11-23 11:39:49 INFO    x6_timing: membrane -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x6\membrane_seed1.npz (threads pinned to 1)
+2026-11-23 11:39:52 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 2.9 s
+2026-11-23 11:40:22 INFO    x6_timing: membrane: n_dof 576, n_c 144, r 60, columns 348, load hybrid (one solve per query) | offline: training 2.9 s, bases 2.4 s, representers 0.1 s | FOM-cold 13.6 ms, FOM-cond 0.63 ms
+2026-11-23 11:40:22 INFO    x6_timing: accepted silent failures (accepted with true relative error > tau): 0
+2026-11-23 11:40:22 INFO    x6_timing: S1  vs FOM-cold: certified share 94 % | online 19.72 ms (rom 18.69, correction 0.04, multiplier 0.90, certificate 0.36) | net speed-up 0.66x | break-even after inf queries
+2026-11-23 11:40:22 INFO    x6_timing: S1  vs FOM-cond: certified share 94 % | online 19.72 ms (rom 18.69, correction 0.04, multiplier 0.90, certificate 0.36) | net speed-up 0.03x | break-even after inf queries
+2026-11-23 11:40:22 INFO    x6_timing: S1r vs FOM-cold: certified share 94 % | online 19.19 ms (rom 18.65, correction 0.04, multiplier 0.60, certificate 0.36) | net speed-up 0.68x | break-even after inf queries
+2026-11-23 11:40:22 INFO    x6_timing: S1r vs FOM-cond: certified share 94 % | online 19.19 ms (rom 18.65, correction 0.04, multiplier 0.60, certificate 0.36) | net speed-up 0.03x | break-even after inf queries
+2026-11-23 11:40:22 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x6\membrane_seed1.npz (27 arrays)

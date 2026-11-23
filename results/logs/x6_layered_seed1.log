@@ -1,0 +1,8 @@
+2026-11-23 11:37:32 INFO    x6_timing: layered -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x6\layered_seed1.npz (threads pinned to 1)
+2026-11-23 11:38:31 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 59.1 s
+2026-11-23 11:39:27 INFO    x6_timing: layered: n_dof 3375, n_c 225, r 30, columns 736, load affine | offline: training 59.1 s, bases 0.2 s, representers 1.8 s | FOM-cold 534.4 ms, FOM-cond n/a ms
+2026-11-23 11:39:27 INFO    x6_timing: accepted silent failures (accepted with true relative error > tau): 0
+2026-11-23 11:39:27 INFO    x6_timing: S1  vs FOM-cold: certified share 61 % | online 1.49 ms (rom 0.42, correction 0.06, multiplier 0.75, certificate 0.27) | net speed-up 2.55x | break-even after 189 queries
+2026-11-23 11:39:27 INFO    x6_timing: S1r vs FOM-cold: certified share 61 % | online 1.28 ms (rom 0.42, correction 0.06, multiplier 0.55, certificate 0.26) | net speed-up 2.55x | break-even after 188 queries
+2026-11-23 11:39:27 INFO    x6_timing: GATE 1 (layered): net speed-up 2.55 > 1 and certified share 61 % >= 50 %: True
+2026-11-23 11:39:27 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\x6\layered_seed1.npz (27 arrays)

@@ -72,3 +72,17 @@ def test_bases_from_snapshots(problem):
     assert dual_basis("svd", L, 4).shape == (problem.n_contact, 4)
     with pytest.raises(ValueError):
         dual_basis("nmf", np.zeros_like(L), 4)
+
+
+def test_condensed_solver_matches_full_order():
+    """FOM-cond (reused factorisation + Delassus LCP) is exact for a constant K."""
+    from certcorrect.fom import CondensedSolver
+
+    problem = Membrane(n=15)
+    mu = problem.sample(np.random.default_rng(6), 1)[0]
+    ref = FullOrderSolver(problem).solve(mu)
+    u, lam, ok, _ = CondensedSolver(problem).solve(mu)
+    assert ok and np.abs(u - ref.u).max() <= 1e-9 * np.abs(ref.u).max()
+    assert np.abs(lam - ref.lam).max() <= 1e-8 * np.abs(ref.lam).max()
+    with pytest.raises(ValueError):
+        CondensedSolver(ElasticBlock(n_xy=6, nz=2, layered=True))

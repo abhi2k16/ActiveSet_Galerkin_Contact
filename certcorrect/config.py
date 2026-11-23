@@ -67,7 +67,9 @@ GATE1_MIN_CERTIFIED_SHARE = 0.5  # Gate 1: speed claim needs certified share >= 
 
 # Active-set prediction tolerances (plan Sec. 3, item 6), relative to the problem scales.
 TAU_LAMBDA = 1e-8                # rule "multiplier": lam~_i > TAU_LAMBDA * ||lam~||_inf
-TAU_GAP = 1e-8                   # rule "gap": (B u~ - c)_i <= TAU_GAP * char_gap
+TAU_GAP = 3e-3                   # rule "gap": (B u~ - c)_i <= TAU_GAP * char_gap; selected by X3 (plan D9)
+ACTIVE_SET_RULE = "gap"          # default A^ rule from week 7 on (plan D9)
+SUPPORT_FACTOR = 10              # S1-restricted support S_t, t = SUPPORT_FACTOR * TAU_GAP * char_gap (plan D10)
 K_NEIGHBOURS = 3                 # rule "neighbours": union of training active sets of the k nearest parameters
 
 

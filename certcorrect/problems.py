@@ -70,6 +70,11 @@ class ContactProblem:
     def load(self, mu: np.ndarray) -> np.ndarray:
         raise NotImplementedError
 
+    def load_affine(self) -> tuple[tuple[np.ndarray, ...], "callable"] | None:
+        """``(f_terms, phi)`` with ``f(mu) = sum_q phi(mu)_q f_q`` if the load is affine in the parameter, else ``None``
+        (then the offline-online certificate needs one solve with X per query, or an empirical interpolation)."""
+        return None
+
     def offset(self, mu: np.ndarray) -> np.ndarray:
         """Constraint offset ``c(mu)`` (obstacle height seen by the constrained unknowns)."""
         raise NotImplementedError
@@ -262,6 +267,12 @@ class ElasticBlock(ContactProblem):
         f = np.zeros(self.n_dof)
         f[self._top_dof] = -mu[self.load_axis] * self._top_weight
         return f
+
+    def load_affine(self):
+        """The pressure scales a fixed Gaussian profile: ``f(mu) = P * f_0`` (one term)."""
+        f0 = np.zeros(self.n_dof)
+        f0[self._top_dof] = -self._top_weight
+        return (f0,), lambda mu: np.array([mu[self.load_axis]])
 
     def offset(self, mu):
         centre = np.asarray(mu[self.centre_axes[0]:self.centre_axes[1] + 1])
