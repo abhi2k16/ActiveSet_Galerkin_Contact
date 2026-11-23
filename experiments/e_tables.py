@@ -101,7 +101,7 @@ def table_e3() -> None:
     rows = []
     for name, a in agg.items():
         ratio = (f"{np.median(a['med']):.3f} ({min(a['min']):.3f}--{max(a['max']):.3f})" if a["med"] else "identity")
-        rows.append(f"{LABELS.get(name, tex_escape(name))} & {a['checked']} & {a['viol']} & {a['worst']:.1e} & {ratio} \\\\")
+        rows.append(f"{LABELS.get(name, tex_escape(name))} & {a['checked']} & {a['viol']} & {('--' if not np.isfinite(a['worst']) else format(a['worst'], '.1e'))} & {ratio} \\\\")
     write("e3_random.tex", rows, "\\begin{tabular}{lrrrl}\n\\hline\nstatement & checks & violations & worst margin & "
           "lhs/rhs: median (min--max) \\\\\n\\hline")
 
