@@ -1,0 +1,5 @@
+2026-11-23 17:34:17 INFO    e2_support_floor: membrane: 10 queries x 11 amplitudes -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e2_support_floor\membrane_seed1.npz
+2026-11-23 17:34:18 INFO    e2_support_floor: full S1: certificate rate in the error 1.000 over 10 queries
+2026-11-23 17:34:18 INFO    e2_support_floor: omit_i : at the smallest eps, delta/sigma_S >= 1.000 (floor violations 0), delta/delta_full >= 68304.2 (stall violations 0); median sigma_S 5.134e-01, median delta at eps = 0.1: 7.228e-01
+2026-11-23 17:34:18 INFO    e2_support_floor: omit_A : at the smallest eps, delta/sigma_S >= 1.000 (floor violations 0), delta/delta_full >= 68304.2 (stall violations 0); median sigma_S 5.135e-01, median delta at eps = 0.1: 7.210e-01
+2026-11-23 17:34:18 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e2_support_floor\membrane_seed1.npz (8 arrays)

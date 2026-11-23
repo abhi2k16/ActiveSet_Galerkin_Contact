@@ -1,0 +1,26 @@
+2026-11-23 17:38:21 INFO    e3_random_instances: 1000 instances, sizes ((8, 3), (15, 5), (30, 8), (50, 12)) -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e3_random\summary_seed2.json
+2026-11-23 17:38:26 INFO    e3_random_instances: Lem 2.2 Phi <= Delta^2                   checked  3000 | violations 0 | worst margin -1.9e-16 | ratio lhs/rhs median 0.926 (min 0.750, max 1.000, nontrivial 3000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Lem 2.2 Delta^2 <= 4/3 Phi               checked  3000 | violations 0 | worst margin +9.9e-09 | ratio lhs/rhs median 0.810 (min 0.750, max 1.000, nontrivial 3000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Rem 3.2 inexact S1                       checked  1000 | violations 0 | worst margin +9.5e-05 | ratio lhs/rhs median 0.880 (min 0.412, max 1.000, nontrivial 1000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Rem 3.2 no 2/sqrt3 if eta(l*)=0          checked   471 | violations 0 | worst margin -1.7e-13 | ratio lhs/rhs median 1.000 (min 0.454, max 1.000, nontrivial 471)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.1 lower                            checked  1000 | violations 0 | worst margin -9.3e-14 | ratio lhs/rhs median 0.798 (min 0.054, max 1.000, nontrivial 1000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.1 upper                            checked  1000 | violations 0 | worst margin +5.7e-05 | ratio lhs/rhs median 0.866 (min 0.339, max 1.000, nontrivial 1000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.1 lam.g <= m(A+)||e||              checked  1000 | violations 0 | worst margin +9.0e-04 | ratio lhs/rhs median 0.000 (min 0.000, max 0.738, nontrivial 774)
+2026-11-23 17:38:26 INFO    e3_random_instances: Cor 3.3 eff <= 2/sqrt3 s                 checked   618 | violations 0 | worst margin +1.3e-01 | ratio lhs/rhs median 0.866 (min 0.339, max 0.885, nontrivial 618)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.7 identity lam.g = -lam_M.Be       checked  1000 | violations 0 | worst margin -3.3e-10 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.7 lam.g <= m(M)||e||               checked  1000 | violations 0 | worst margin -1.7e-10 | ratio lhs/rhs median 0.163 (min 0.001, max 0.738, nontrivial 316)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.7 eff bound                        checked  1000 | violations 0 | worst margin +1.3e-01 | ratio lhs/rhs median 0.708 (min 0.063, max 0.885, nontrivial 1000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Cor 3.8 localized                        checked   316 | violations 0 | worst margin -1.7e-10 | ratio lhs/rhs median 1.000 (min 0.048, max 1.000, nontrivial 316)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.9 upper                            checked  2000 | violations 0 | worst margin +5.7e-05 | ratio lhs/rhs median 0.732 (min 0.272, max 1.000, nontrivial 2000)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.9 lower (floor)                    checked  2000 | violations 0 | worst margin +1.0e+00 | ratio lhs/rhs median 0.842 (min 0.000, max 0.999, nontrivial 694)
+2026-11-23 17:38:26 INFO    e3_random_instances: Thm 3.9 sigma_S > 0 iff A+ not in S      checked  2000 | violations 0 | worst margin +inf | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 2.3 energy identity                 checked   624 | violations 0 | worst margin -3.3e-10 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 2.3 energy identity (direct J difference, diagnostic) checked   624 | violations 0 | worst margin -7.9e-10 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 2.3 gap identity (up to rounding)   checked   624 | violations 0 | worst margin -5.3e-10 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 2.3 Delta <= sqrt(2G)               checked   624 | violations 0 | worst margin -1.0e-10 | ratio lhs/rhs median 1.000 (min 0.728, max 1.000, nontrivial 624)
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 3.4 S1 = shifted LCP                checked   624 | violations 0 | worst margin -1.0e-12 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 3.4 rho = ||u^-u'||_K               checked   624 | violations 0 | worst margin -2.0e-13 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Prop 3.4 feasibility                     checked   624 | violations 0 | worst margin +1.0e-09 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Cor 3.5 Delta = ||e|| (0<=g^<=2g)        checked   439 | violations 0 | worst margin -1.1e-10 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: Cor 3.5 l* = lam                         checked   439 | violations 0 | worst margin -1.4e-14 | equality / identity
+2026-11-23 17:38:26 INFO    e3_random_instances: TOTAL violations: 0 (diagnostic entries: 0)

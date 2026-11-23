@@ -1,0 +1,7 @@
+2026-11-23 17:33:51 INFO    e1_exactness: membrane (constant K, X = K), tau_g = 0.003 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e1_exactness\membrane_seed0.npz
+2026-11-23 17:33:54 INFO    certcorrect.pipeline: training: 200/200 full-order solves converged in 3.6 s
+2026-11-23 17:34:02 INFO    certcorrect.pipeline: test: 200/200 full-order solves converged in 4.3 s
+2026-11-23 17:34:21 INFO    e1_exactness: R0        1000 queries | condition (C) holds for   0.0 % | where it holds: max |eff-1| = 0.0e+00, violations 0 | elsewhere (1000): eff median 1.435, max 3.528, bound violations 0
+2026-11-23 17:34:21 INFO    e1_exactness: R0s_gap   1000 queries | condition (C) holds for  40.1 % | where it holds: max |eff-1| = 2.5e-14, violations 0 | elsewhere (599): eff median 1.074, max 1.370, bound violations 0
+2026-11-23 17:34:21 INFO    e1_exactness: R0s_mult  1000 queries | condition (C) holds for  18.3 % | where it holds: max |eff-1| = 2.7e-15, violations 0 | elsewhere (817): eff median 1.022, max 1.860, bound violations 0
+2026-11-23 17:34:21 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e1_exactness\membrane_seed0.npz (15 arrays)

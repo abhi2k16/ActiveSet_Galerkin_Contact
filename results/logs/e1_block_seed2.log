@@ -1,0 +1,7 @@
+2026-11-23 17:36:35 INFO    e1_exactness: block (constant K, X = K), tau_g = 0.003 -> C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e1_exactness\block_seed2.npz
+2026-11-23 17:36:45 INFO    certcorrect.pipeline: training: 100/100 full-order solves converged in 10.1 s
+2026-11-23 17:36:57 INFO    certcorrect.pipeline: test: 100/100 full-order solves converged in 11.5 s
+2026-11-23 17:37:02 INFO    e1_exactness: R0         400 queries | condition (C) holds for  10.8 % | where it holds: max |eff-1| = 2.9e-14, violations 0 | elsewhere (357): eff median 1.501, max 3.152, bound violations 0
+2026-11-23 17:37:02 INFO    e1_exactness: R0s_gap    400 queries | condition (C) holds for  48.5 % | where it holds: max |eff-1| = 2.9e-14, violations 0 | elsewhere (206): eff median 1.079, max 1.953, bound violations 0
+2026-11-23 17:37:02 INFO    e1_exactness: R0s_mult   400 queries | condition (C) holds for  74.2 % | where it holds: max |eff-1| = 2.9e-14, violations 0 | elsewhere (103): eff median 1.012, max 1.342, bound violations 0
+2026-11-23 17:37:02 INFO    certcorrect.results_io: saved C:\Users\abhij\Desktop\Physical_ML\proposed-research\admissible-lifting-certification\certified-correction-contact-rom\results\e1_exactness\block_seed2.npz (15 arrays)
