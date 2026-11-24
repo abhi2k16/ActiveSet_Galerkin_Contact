@@ -1,4 +1,4 @@
-"""E2 (SHORT_PAPER_SCOPE.md): the support floor of the restricted S1 multiplier on the controlled lift-off sequence.
+"""E2 (archive/SHORT_PAPER_SCOPE.md): the support floor of the restricted S1 multiplier on the controlled lift-off sequence.
 
 For a full-order solution (u, lam) let phi = K^-1 B^T lam / ||.||_K (>= 0 for the M-matrix benchmarks). The predictions
 u~_eps = u + eps phi (rows opened at fixed force), corrected by R0-snap on the exact strictly active set A_+ (so u^ is consistent and
@@ -11,7 +11,7 @@ For the membrane K is an M-matrix, so phi >= 0 and the sequence is the "rows ope
 phi may have negative entries, and R0-snap on A_+ (with R0 on the other rows) still gives a feasible, consistent u^ with error of order eps:
 the statements tested need only g^ = 0 on A_+.
 
-Criterion (fixed in SHORT_PAPER_SCOPE.md before running), at the smallest amplitude: certificate of the restricted multiplier
+Criterion (fixed in archive/SHORT_PAPER_SCOPE.md before running), at the smallest amplitude: certificate of the restricted multiplier
 >= 0.95 sigma_S / sqrt(alpha_X) and >= 100 x the full-S1 certificate; the full-S1 certificate has rate 1 in the error.
 
 Output: results/e2_support_floor/<problem>_seed<seed>.npz.   Usage:  python experiments/e2_support_floor.py --problem membrane --seed 0

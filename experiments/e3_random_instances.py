@@ -1,4 +1,4 @@
-"""E3 (SHORT_PAPER_SCOPE.md): property test of the proved statements on random inequality-constrained SPD systems.
+"""E3 (archive/SHORT_PAPER_SCOPE.md): property test of the proved statements on random inequality-constrained SPD systems.
 
 Instances: random SPD K, random full-row-rank B, random f, c with a mixture of active and inactive rows; exact solution
 from the condensed LCP  D lam + (B u_f - c) >= 0, D = B K^-1 B^T. Feasible approximations u^ of several kinds:

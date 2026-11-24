@@ -140,7 +140,7 @@ cd paper && latexmk -pdf -outdir=build main.tex
 ```
 
 Results are written to `results/e1_exactness/`, `results/e2_support_floor/` and `results/e3_random/`. Scope, acceptance criteria and the status of each gate
-are in `../SHORT_PAPER_SCOPE.md`; the four protocol changes made after the first E3 runs are disclosed there and in the paper (Sec. 5.4).
+are in `../RESEARCH_RECORD.md`; the four protocol changes made after the first E3 runs are disclosed there and in the paper (Sec. 5.4).
 
 ## Experiments
 

@@ -1,11 +1,11 @@
-"""E1 (SHORT_PAPER_SCOPE.md): exactness of the S1 certificate on finite element queries (X = K, constant-K benchmarks).
+"""E1 (archive/SHORT_PAPER_SCOPE.md): exactness of the S1 certificate on finite element queries (X = K, constant-K benchmarks).
 
 For every test query, basis size and correction (R0; R0s with the gap rule tau_g = config.TAU_GAP; R0s with the multiplier rule,
 which over-snaps) the corrected u^ is certified with S1 and X = K (alpha = 1), and compared with the full-order solution:
   condition (C):  0 <= g^ <= 2 g  componentwise (tolerance 1e-12 * char_gap; g from the full-order solution)
   Cor. 3.5:       (C)  =>  Delta* = ||e||_K  (effectivity 1)
   Thm 3.7:        otherwise  1 <= eff <= (2/sqrt3) (1 + sqrt(m(M)/||e||)),  M = {i : lam_i > 0, g^_i > tol}
-Criterion (fixed in SHORT_PAPER_SCOPE.md before running): where (C) holds |eff - 1| <= 1e-6; elsewhere the bounds above hold
+Criterion (fixed in archive/SHORT_PAPER_SCOPE.md before running): where (C) holds |eff - 1| <= 1e-6; elsewhere the bounds above hold
 (within 1e-9 relative). The fraction of queries satisfying (C) is reported per correction.
 
 Output: results/e1_exactness/<problem>_seed<seed>.npz and a JSON summary.
